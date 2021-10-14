@@ -8,6 +8,7 @@ import {
     } from '@chakra-ui/react';
 import {FaCar} from 'react-icons/fa'
 import LogIn from '../Authentication/Login';
+
 export default function LandingPage() {
      const login = LogIn();
     return(

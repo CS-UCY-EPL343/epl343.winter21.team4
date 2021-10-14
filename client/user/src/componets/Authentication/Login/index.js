@@ -9,7 +9,7 @@ import {
 import {AiFillCar} from 'react-icons/ai'
 export default function LogIn() {
     return(
-        <Text>LOGIN SCREEN</Text>
+        <Text>En leitourgei</Text>
     );
 }
 
