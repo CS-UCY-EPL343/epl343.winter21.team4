@@ -21,7 +21,7 @@ export default function LandingPage() {
             boxSize='3xl'
             blockSize='full'
             width='full'
-            height='x1'
+            height='full'
 
         >
             <Box alignSelf='center'>
@@ -34,6 +34,9 @@ export default function LandingPage() {
                 <Button>SIGN UP </Button>
                 <Button>ONE TIME PAYMENT </Button>
             </Stack>
+            /* by inceasing the size of a box, the outer stack gets bigger
+            and covers the screen */
+            <Box bgColor="#16DABF" width="10" height="700"></Box> 
         </Stack>
     );
 }
