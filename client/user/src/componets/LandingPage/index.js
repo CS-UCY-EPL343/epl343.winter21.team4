@@ -1,4 +1,4 @@
-import { Text, Box, Heading, Button, Stack, Icon } from "@chakra-ui/react";
+import { Text, Box, Heading, Button, Stack, Icon, Input } from "@chakra-ui/react";
 import { FaCar } from "react-icons/fa";
 import LogIn from "../Authentication/Login";
 
@@ -32,7 +32,7 @@ export default function LandingPage() {
           <Button>LOG IN </Button>
           <Button>SIGN UP </Button>
           <Button>ONE TIME PAYMENT </Button>
-          <LogIn></LogIn>
+        
         </Stack>
         /* by inceasing the size of a box, the outer stack gets bigger and
         covers the screen */
