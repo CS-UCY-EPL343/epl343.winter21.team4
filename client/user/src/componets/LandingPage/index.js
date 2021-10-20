@@ -16,6 +16,8 @@ export default function LandingPage() {
         blockSize="full"
         width="full"
         height="full"
+        minHeight="full"
+        minWidth="full"
       >
         <Box alignSelf="center">
           <Icon
@@ -27,13 +29,14 @@ export default function LandingPage() {
         </Box>
         <Stack width="52" alignSelf="center">
           {/* <Button color='blue.100' >landing page </Button> */}
-          <Button onClick={login}>LOG IN </Button>
+          <Button>LOG IN </Button>
           <Button>SIGN UP </Button>
           <Button>ONE TIME PAYMENT </Button>
+          <LogIn></LogIn>
         </Stack>
         /* by inceasing the size of a box, the outer stack gets bigger and
         covers the screen */
-        <Box bgColor="#16DABF" width="10" height="700"></Box>
+        <Box bgColor="#16DABF" width="full" height="700" minHeight="full"></Box>
       </Stack>
     
   );
