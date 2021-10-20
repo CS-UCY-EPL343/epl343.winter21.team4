@@ -1,4 +1,4 @@
-import { Text, Box, Heading, Button, Stack, Icon } from "@chakra-ui/react";
+import { Text, Box, Heading, Button, Stack, Icon, Input } from "@chakra-ui/react";
 import { FaCar } from "react-icons/fa";
 import LogIn from "../Authentication/Login";
 
