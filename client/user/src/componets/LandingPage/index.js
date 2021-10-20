@@ -32,7 +32,7 @@ export default function LandingPage() {
           <Button>LOG IN </Button>
           <Button>SIGN UP </Button>
           <Button>ONE TIME PAYMENT </Button>
-          <LogIn></LogIn>
+        
         </Stack>
         /* by inceasing the size of a box, the outer stack gets bigger and
         covers the screen */

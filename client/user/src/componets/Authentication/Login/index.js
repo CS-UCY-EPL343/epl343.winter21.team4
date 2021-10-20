@@ -1,4 +1,4 @@
-import { Text, Box, Heading, Button, Stack, Icon } from "@chakra-ui/react";
+import { Text, Box, Heading, Button, Stack, Icon, Input, show,handleClick,InputRightElement } from "@chakra-ui/react";
 import { FaCar } from "react-icons/fa";
 export default function LogIn() {
   return (
@@ -26,24 +26,25 @@ export default function LogIn() {
           />
         </Box>
 
-    <Stack width="52" alignSelf="center">
-<Input  pr="4.5rem" variant="filled" placeholder="Email"></Input>
+  <Stack width="52" alignSelf="center">
 
-      <Input
-        pr="4.5rem"
-        type={show ? "text" : "password"}
-        placeholder="Password"
+   <Input variant="filed"
+          placeholder="Email"
       />
-      <InputRightElement width="4.5rem">
-        <Button h="1.75rem" size="sm" onClick={handleClick}>
-          {show ? "Hide" : "Show"}
-        </Button>
-      </InputRightElement>
- 
 
+      <Input variant="filed"
+        type={show ? "text" : "password"}
+        placeholder="Enter Password"
+      />
+
+
+<Button h="1.75rem" size="sm" onClick={handleClick}>
+          {show ? "Hide" : "Show"}
+        </Button> 
+      
 
 <Button>LOG IN</Button>
-
+<Box bgColor="#16DABF" width="full" height="700" minHeight="full"></Box>
     </Stack>
     </Stack>
    
