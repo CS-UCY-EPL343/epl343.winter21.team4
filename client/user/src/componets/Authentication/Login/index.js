@@ -91,7 +91,7 @@ export default function LogIn() {
               {show ? "Hide" : "Show"}
             </Button>
 
-            <Link as={RouterLink} to="/home">
+            <Link as={RouterLink} to="/search">
               <Button width="full">LOG IN</Button>
             </Link>
           </Stack>

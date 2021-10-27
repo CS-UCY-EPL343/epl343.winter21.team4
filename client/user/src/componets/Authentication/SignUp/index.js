@@ -33,6 +33,17 @@ export default function SignUp() {
         />
       </Box>
 
+      <Heading
+        mt={6}
+        textAlign="center"
+        fontSize="xl"
+        fontWeight="extrabold"
+        color="black"
+        paddingBottom="5"
+      >
+        <Text>Craete a new account</Text>
+      </Heading>
+
       <Stack spacing={3} alignSelf="center">
         <Input
           size="md"

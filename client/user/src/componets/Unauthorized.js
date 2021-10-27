@@ -4,6 +4,7 @@ import { BrowserRouter, Route, Switch } from "react-router-dom";
 import LogIn from "./Authentication/Login";
 import SignUp from "./Authentication/SignUp";
 import LandingPage from "./LandingPage";
+import Search from "./Views/Search";
 
 export function Unauthorized() {
   return (
@@ -15,6 +16,9 @@ export function Unauthorized() {
           </Route>
           <Route exact path="/signup">
             <SignUp />
+          </Route>
+          <Route exact path="/search">
+            <Search />
           </Route>
           <Route exact path="/onetimepayment"></Route>
           <Route path="*">
