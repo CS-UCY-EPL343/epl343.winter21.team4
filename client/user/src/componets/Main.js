@@ -1,5 +1,6 @@
-import LandingPage from "./LandingPage";
+import { Unauthorized } from "./Unauthorized";
+import { BrowserRouter, Route, Switch } from "react-router-dom";
 
 export default function Main() {
-  return <LandingPage />;
+  return <Unauthorized />;
 }

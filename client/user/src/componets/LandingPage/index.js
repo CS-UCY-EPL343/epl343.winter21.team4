@@ -6,10 +6,16 @@ import {
   Stack,
   Icon,
   Input,
+  Link,
 } from "@chakra-ui/react";
 import { FaCar } from "react-icons/fa";
-import { Switch, Link, Route } from "react-router-dom";
-
+import LogIn from "../Authentication/Login";
+import {
+  BrowserRouter,
+  Route,
+  Switch,
+  Link as RouterLink,
+} from "react-router-dom";
 
 export default function LandingPage() {
   return (
@@ -26,6 +32,15 @@ export default function LandingPage() {
       minHeight="full"
       minWidth="full"
     >
+      <Heading
+        mt={6}
+        textAlign="center"
+        fontSize="7xl"
+        fontWeight="extrabold"
+        color="black"
+      >
+        <Text>ParkPick</Text>
+      </Heading>
       <Box alignSelf="center">
         <Icon
           alignItems="center"
@@ -35,12 +50,14 @@ export default function LandingPage() {
         />
       </Box>
       <Stack width="52" alignSelf="center">
-        {/* <Button color='blue.100' >landing page </Button> */}
-        <Link to="/Signup">Test</Link>
+        <Link as={RouterLink} to="/login">
+          <Button width="full">LOG IN</Button>
+        </Link>
 
-        <Button>LOG IN </Button>
-        <Button>SIGN UP </Button>
-        <Button>ONE TIME PAYMENT </Button>
+        <Link as={RouterLink} to="/signup">
+          <Button width="full">SIGN UP </Button>
+        </Link>
+        <Button width="full">ONE TIME PAYMENT </Button>
       </Stack>
       /* by inceasing the size of a box, the outer stack gets bigger and covers
       the screen */

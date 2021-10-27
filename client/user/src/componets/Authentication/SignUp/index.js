@@ -34,15 +34,28 @@ export default function SignUp() {
       </Box>
 
       <Stack spacing={3} alignSelf="center">
-        <Input size="md" variant="filled" placeholder="First Name" type="text" />
-        <Input size="md" variant="outline" placeholder="Last Name" type="text" />
-        <Input size="md" variant="outline" placeholder="Email" type="email" />
-        <Input size="md" variant="outline" placeholder="Phone Number" type="tel" />
-        <Input size="md" variant="outline" placeholder="Repeat Password" type="password" />
+        <Input
+          size="md"
+          variant="filled"
+          placeholder="First Name"
+          type="text"
+        />
+        <Input size="md" variant="filled" placeholder="Last Name" type="text" />
+        <Input size="md" variant="filled" placeholder="Email" type="email" />
+        <Input
+          size="md"
+          variant="filled"
+          placeholder="Phone Number"
+          type="tel"
+        />
+        <Input size="md" variant="filled" placeholder="Password" />
+        <Input
+          size="md"
+          variant="filled"
+          placeholder="Repeat Password"
+          type="password"
+        />
       </Stack>
-
-      
-
     </Stack>
   );
 }
