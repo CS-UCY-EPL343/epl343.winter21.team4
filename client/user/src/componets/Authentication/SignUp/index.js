@@ -38,7 +38,6 @@ export default function SignUp() {
         <Input size="md" variant="outline" placeholder="Last Name" type="text" />
         <Input size="md" variant="outline" placeholder="Email" type="email" />
         <Input size="md" variant="outline" placeholder="Phone Number" type="tel" />
-        <Input size="md" variant="outline" placeholder="Password" type={show ? "text" : "password"} />
         <Input size="md" variant="outline" placeholder="Repeat Password" type="password" />
       </Stack>
 

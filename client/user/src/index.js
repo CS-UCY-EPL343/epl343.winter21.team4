@@ -6,11 +6,12 @@ import reportWebVitals from './reportWebVitals';
 import {ChackraProvider} from '@chakra-ui/react'
 import { ChakraProvider } from '@chakra-ui/provider';
 import LandingPage from './componets/LandingPage';
+import {Switch, Link,Route} from "react-router-dom"
 
 
 ReactDOM.render(
   <React.StrictMode>
-      <App />
+      <App/>
   </React.StrictMode>,
   document.getElementById('root')
 );
