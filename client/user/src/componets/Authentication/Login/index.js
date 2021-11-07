@@ -24,6 +24,7 @@ import {
   Link as RouterLink,
 } from "react-router-dom";
 import LandingPage from "../../LandingPage";
+import Password from "../Password";
 
 export default function LogIn() {
   return (
@@ -81,15 +82,7 @@ export default function LogIn() {
           <Stack width="52" alignSelf="center">
             <Input variant="filed" placeholder="Email" />
 
-            <Input
-              variant="filed"
-              type={show ? "text" : "password"}
-              placeholder="Enter Password"
-            />
-
-            <Button h="1.75rem" size="sm">
-              {show ? "Hide" : "Show"}
-            </Button>
+            <Password />
 
             <Link as={RouterLink} to="/search">
               <Button width="full">LOG IN</Button>
