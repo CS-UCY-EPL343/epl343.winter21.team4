@@ -5,6 +5,8 @@ import LogIn from "./Authentication/Login";
 import SignUp from "./Authentication/SignUp";
 import LandingPage from "./LandingPage";
 import Search from "./Views/Search";
+import Profile from "./Views/Profile";
+import Layout from "./Views/NavigationBar/Layout";
 
 export function Unauthorized() {
   return (
@@ -16,6 +18,11 @@ export function Unauthorized() {
           </Route>
           <Route exact path="/signup">
             <SignUp />
+          </Route>
+          <Route exact path="/profile">
+            <Layout>
+              <Profile />
+            </Layout>
           </Route>
           <Route exact path="/search">
             <Search />

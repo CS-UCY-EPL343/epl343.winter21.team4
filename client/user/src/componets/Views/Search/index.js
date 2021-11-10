@@ -28,6 +28,7 @@ import LandingPage from "../../LandingPage";
 export default function Search() {
   return (
     <Link as={RouterLink} to="/profile">
+      <Text>THIS IS THE SEARCH PAGE</Text>
       <Button width="full">GO TO PROFILE</Button>
     </Link>
   );

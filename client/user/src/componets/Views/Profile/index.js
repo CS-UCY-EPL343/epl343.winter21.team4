@@ -23,8 +23,12 @@ import {
   Switch,
   Link as RouterLink,
 } from "react-router-dom";
-import LandingPage from "../../LandingPage";
 
 export default function Profile() {
-  return <Text>THIS IS THE PROFILE PAGE</Text>;
+  return (
+    <Link as={RouterLink} to="/search">
+      <Text>THIS IS THE PROFILE PAGE</Text>
+      <Button width="full">GO TO SEARCH</Button>
+    </Link>
+  );
 }
