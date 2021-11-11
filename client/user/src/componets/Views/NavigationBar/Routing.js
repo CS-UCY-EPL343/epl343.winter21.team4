@@ -17,7 +17,6 @@ export function Routing() {
             <Route path="/search">
               <Search />
             </Route>
-
             <Route path="*">
               <Search />
             </Route>

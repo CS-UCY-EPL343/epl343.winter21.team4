@@ -6,6 +6,7 @@ import {
   Box,
   useTheme,
   Text,
+  Button,
   HStack,
   Icon,
 } from "@chakra-ui/react";
@@ -40,80 +41,86 @@ export default function Layout() {
             </Flex>
             <Stack flex={1} overflowY="auto">
               <Stack as="nav" flex={1} spacing={0}>
-                <HStack
-                  align="center"
-                  px={4}
-                  py={3}
-                  fontWeight="medium"
-                  fontSize="sm"
-                  textColor="red"
-                  lineHeight={5}
-                  spacing={2}
-                  activeStyle={{
-                    color: "gray.300",
-                  }}
-                  _hover={{ bg: "gray.300" }}
-                >
-                  <Icon
-                    as={FaSearch}
-                    w={{ base: 8, lg: 6 }}
-                    h={{ base: 8, lg: 6 }}
-                    color="white"
-                  />
-                  <Text display={{ base: "none", lg: "block" }} color="white">
-                    {"Search"}
-                  </Text>
-                </HStack>
+                <Link as={RouterLink} to="/search">
+                  <HStack
+                    align="center"
+                    px={4}
+                    py={3}
+                    fontWeight="medium"
+                    fontSize="sm"
+                    textColor="red"
+                    lineHeight={5}
+                    spacing={2}
+                    activeStyle={{
+                      color: "gray.300",
+                    }}
+                    _hover={{ bg: "gray.300" }}
+                  >
+                    <Icon
+                      as={FaSearch}
+                      w={{ base: 8, lg: 6 }}
+                      h={{ base: 8, lg: 6 }}
+                      color="white"
+                    />
+                    <Text display={{ base: "none", lg: "block" }} color="white">
+                      {"Search"}
+                    </Text>
+                  </HStack>
+                </Link>
 
-                <HStack
-                  align="center"
-                  px={4}
-                  py={3}
-                  fontWeight="medium"
-                  fontSize="sm"
-                  textColor="red"
-                  lineHeight={5}
-                  spacing={2}
-                  activeStyle={{
-                    color: "gray.300",
-                  }}
-                  _hover={{ bg: "gray.300" }}
-                >
-                  <Icon
-                    as={BsFillCreditCardFill}
-                    w={{ base: 8, lg: 6 }}
-                    h={{ base: 8, lg: 6 }}
-                    color="white"
-                  />
-                  <Text display={{ base: "none", lg: "block" }} color="white">
-                    {"Card"}
-                  </Text>
-                </HStack>
+                <Link as={RouterLink} to="/card">
+                  <HStack
+                    align="center"
+                    px={4}
+                    py={3}
+                    fontWeight="medium"
+                    fontSize="sm"
+                    textColor="red"
+                    lineHeight={5}
+                    spacing={2}
+                    activeStyle={{
+                      color: "gray.300",
+                    }}
+                    _hover={{ bg: "gray.300" }}
+                  >
+                    <Icon
+                      as={BsFillCreditCardFill}
+                      w={{ base: 8, lg: 6 }}
+                      h={{ base: 8, lg: 6 }}
+                      color="white"
+                    />
+                    <Text display={{ base: "none", lg: "block" }} color="white">
+                      {"Card"}
+                    </Text>
+                  </HStack>
+                </Link>
 
-                <HStack
-                  align="center"
-                  px={4}
-                  py={3}
-                  fontWeight="medium"
-                  fontSize="sm"
-                  textColor="red"
-                  lineHeight={5}
-                  spacing={2}
-                  activeStyle={{
-                    color: "gray.300",
-                  }}
-                  _hover={{ bg: "gray.300" }}
-                >
-                  <Icon
-                    as={FaUserCog}
-                    w={{ base: 8, lg: 6 }}
-                    h={{ base: 8, lg: 6 }}
-                    color="white"
-                  />
-                  <Text display={{ base: "none", lg: "block" }} color="white">
-                    {"Profile"}
-                  </Text>
-                </HStack>
+                <Link as={RouterLink} to="/profile">
+                  <HStack
+                    align="center"
+                    px={4}
+                    py={3}
+                    fontWeight="medium"
+                    fontSize="sm"
+                    textColor="red"
+                    lineHeight={5}
+                    spacing={2}
+                    activeStyle={{
+                      color: "gray.300",
+                    }}
+                    _hover={{ bg: "gray.300" }}
+                  >
+                    <Icon
+                      as={FaUserCog}
+                      w={{ base: 8, lg: 6 }}
+                      h={{ base: 8, lg: 6 }}
+                      color="white"
+                    />
+                    <Text display={{ base: "none", lg: "block" }} color="white">
+                      {"Profile"}
+                    </Text>
+                  </HStack>
+                </Link>
               </Stack>
             </Stack>
 
@@ -142,30 +149,33 @@ export default function Layout() {
               </Text>
             </HStack>
 
-            <HStack
-              align="center"
-              px={4}
-              py={3}
-              fontWeight="medium"
-              fontSize="sm"
-              textColor="red"
-              lineHeight={5}
-              spacing={2}
-              activeStyle={{
-                color: "gray.300",
-              }}
-              _hover={{ bg: "gray.300" }}
-            >
-              <Icon
-                as={MdOutlineLogout}
-                w={{ base: 8, lg: 6 }}
-                h={{ base: 8, lg: 6 }}
-                color="white"
-              />
-              <Text display={{ base: "none", lg: "block" }} color="white">
-                {"Log Out"}
-              </Text>
-            </HStack>
+            <Link as={RouterLink} to="/login">
+              <HStack
+                align="center"
+                px={4}
+                py={3}
+                fontWeight="medium"
+                fontSize="sm"
+                textColor="red"
+                lineHeight={5}
+                spacing={2}
+                activeStyle={{
+                  color: "gray.300",
+                }}
+                _hover={{ bg: "gray.300" }}
+              >
+                <Icon
+                  as={MdOutlineLogout}
+                  w={{ base: 8, lg: 6 }}
+                  h={{ base: 8, lg: 6 }}
+                  color="white"
+                />
+
+                <Text display={{ base: "none", lg: "block" }} color="white">
+                  Log Out
+                </Text>
+              </HStack>
+            </Link>
           </Stack>
         </Stack>
       </Flex>

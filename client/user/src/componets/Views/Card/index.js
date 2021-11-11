@@ -24,13 +24,12 @@ import {
   Link as RouterLink,
 } from "react-router-dom";
 import LandingPage from "../../LandingPage";
-import { facar } from "react-icons/fa";
-import Layout from "../NavigationBar/Layout";
 
-export default function Search() {
+export default function Card() {
   return (
-    <Layout>
-      <Text>AAAAAAAAAAAAAAAAAAAAAAAA</Text>
-    </Layout>
+    <Link as={RouterLink} to="/card">
+      <Text>THIS IS THE SEARCH PAGE</Text>
+      <Button width="full">GO TO PROFILE</Button>
+    </Link>
   );
 }
