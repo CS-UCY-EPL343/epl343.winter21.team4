@@ -8,6 +8,7 @@ import Search from "./Views/Search";
 import Profile from "./Views/Profile";
 import Layout from "./Views/NavigationBar/Layout";
 import Card from "./Views/Card";
+import Info from "./Views/Info";
 
 export function Unauthorized() {
   return (
@@ -33,6 +34,11 @@ export function Unauthorized() {
           <Route exact path="/card">
             <Layout>
               <Card />
+            </Layout>
+          </Route>
+          <Route exact path="/info">
+            <Layout>
+              <Info />
             </Layout>
           </Route>
           <Route exact path="/onetimepayment"></Route>

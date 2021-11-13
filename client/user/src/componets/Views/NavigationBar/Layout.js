@@ -37,11 +37,21 @@ export default function Layout() {
               px={4}
               display={{ base: "none", lg: "flex" }}
             >
-              <Icon as={FaCar} width="30" height="30" color="white" />
+              <Icon
+                as={FaCar}
+                width="30"
+                height="30"
+                color="white"
+                size="5xl"
+              />
             </Flex>
             <Stack flex={1} overflowY="auto">
               <Stack as="nav" flex={1} spacing={0}>
-                <Link as={RouterLink} to="/search">
+                <Link
+                  as={RouterLink}
+                  to="/search"
+                  style={{ textDecoration: "none" }}
+                >
                   <HStack
                     align="center"
                     px={4}
@@ -68,7 +78,11 @@ export default function Layout() {
                   </HStack>
                 </Link>
 
-                <Link as={RouterLink} to="/card">
+                <Link
+                  as={RouterLink}
+                  to="/card"
+                  style={{ textDecoration: "none" }}
+                >
                   <HStack
                     align="center"
                     px={4}
@@ -95,7 +109,11 @@ export default function Layout() {
                   </HStack>
                 </Link>
 
-                <Link as={RouterLink} to="/profile">
+                <Link
+                  as={RouterLink}
+                  to="/profile"
+                  style={{ textDecoration: "none" }}
+                >
                   <HStack
                     align="center"
                     px={4}
@@ -124,32 +142,38 @@ export default function Layout() {
               </Stack>
             </Stack>
 
-            <HStack
-              align="center"
-              px={4}
-              py={3}
-              fontWeight="medium"
-              fontSize="sm"
-              textColor="red"
-              lineHeight={5}
-              spacing={2}
-              activeStyle={{
-                color: "gray.300",
-              }}
-              _hover={{ bg: "gray.300" }}
-            >
-              <Icon
-                as={FaInfoCircle}
-                w={{ base: 8, lg: 6 }}
-                h={{ base: 8, lg: 6 }}
-                color="white"
-              />
-              <Text display={{ base: "none", lg: "block" }} color="white">
-                {"Info"}
-              </Text>
-            </HStack>
+            <Link as={RouterLink} to="/info" style={{ textDecoration: "none" }}>
+              <HStack
+                align="center"
+                px={4}
+                py={3}
+                fontWeight="medium"
+                fontSize="sm"
+                textColor="red"
+                lineHeight={5}
+                spacing={2}
+                activeStyle={{
+                  color: "gray.300",
+                }}
+                _hover={{ bg: "gray.300" }}
+              >
+                <Icon
+                  as={FaInfoCircle}
+                  w={{ base: 8, lg: 6 }}
+                  h={{ base: 8, lg: 6 }}
+                  color="white"
+                />
+                <Text display={{ base: "none", lg: "block" }} color="white">
+                  {"Info"}
+                </Text>
+              </HStack>
+            </Link>
 
-            <Link as={RouterLink} to="/login">
+            <Link
+              as={RouterLink}
+              to="/login"
+              style={{ textDecoration: "none" }}
+            >
               <HStack
                 align="center"
                 px={4}
