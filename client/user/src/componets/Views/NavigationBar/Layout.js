@@ -202,6 +202,9 @@ export default function Layout() {
             </Link>
           </Stack>
         </Stack>
+        <Text color="red">
+          AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+        </Text>
       </Flex>
     </Flex>
   );

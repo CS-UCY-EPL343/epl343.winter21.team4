@@ -28,9 +28,5 @@ import { facar } from "react-icons/fa";
 import Layout from "../NavigationBar/Layout";
 
 export default function Info() {
-  return (
-    <Layout>
-      <Text color="red">AAAAAAAAAAAAAAAAAAAAAAAA</Text>
-    </Layout>
-  );
+  return <Text color="red">AAAAAAAAAAAAAAAAAAAAAAAA</Text>;
 }

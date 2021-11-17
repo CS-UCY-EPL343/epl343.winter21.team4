@@ -84,7 +84,7 @@ export default function LogIn() {
 
             <Password />
 
-            <Link as={RouterLink} to="/search">
+            <Link as={RouterLink} to="/user">
               <Button width="full">LOG IN</Button>
             </Link>
           </Stack>
