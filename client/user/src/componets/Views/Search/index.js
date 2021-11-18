@@ -21,7 +21,6 @@ import {
   Image,
 } from "@chakra-ui/react";
 import { FaCar } from "react-icons/fa";
-import { SearchIcon } from "@chakra-ui/icons";
 import React from "react";
 import ReactDOM from "react-dom";
 import ReactSearchBox from "react-search-box";
@@ -33,7 +32,6 @@ import {
 } from "react-router-dom";
 import LandingPage from "../../LandingPage";
 import { useState } from "react";
-import { SearchBox } from "react-instantsearch-dom";
 import Data from "./MOCK_DATA.json";
 
 export default function Search() {
