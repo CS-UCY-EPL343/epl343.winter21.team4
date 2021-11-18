@@ -37,11 +37,8 @@ export default function Search() {
 
   return (
     <Box alignSelf="center">
-      <Link as={RouterLink} to="/profile">
-        <Button width="full">GO TO PROFILE</Button>
-      </Link>
-
-      <Stack>
+      <Heading paddingTop="10" alignSelf="center">Search For Parking</Heading>
+      <Stack paddingTop="5">
         <Box boxSize="xl">
           <NumberInput
             onChange={(valueString) => setValue(valueString)}
