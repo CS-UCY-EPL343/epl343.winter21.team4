@@ -17,7 +17,7 @@ export function Unauthorized() {
           <Route exact path="/signup">
             <SignUp />
           </Route>
-          <Route exxact path="/user">
+          <Route exact path="/user">
             <User />
           </Route>
           <Route exact path="/onetimepayment"></Route>

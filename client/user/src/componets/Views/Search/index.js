@@ -28,5 +28,6 @@ import { facar } from "react-icons/fa";
 import Layout from "../NavigationBar/Layout";
 
 export default function Search() {
-  return alert.show("kolokos");
+  return (<Text>Kokos</Text>)
+  
 }

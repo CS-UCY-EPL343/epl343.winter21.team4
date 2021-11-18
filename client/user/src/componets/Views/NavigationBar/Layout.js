@@ -23,7 +23,7 @@ import { FaCar, FaInfoCircle } from "react-icons/fa";
 import { BsFillCreditCardFill } from "react-icons/bs";
 import { MdOutlineLogout } from "react-icons/md";
 
-export default function Layout() {
+export default function Layout({children}) {
   return (
     <Flex h="100vh" overflow="hidden">
       <Flex flexShrink={0}>
@@ -202,10 +202,8 @@ export default function Layout() {
             </Link>
           </Stack>
         </Stack>
-        <Text color="red">
-          AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
-        </Text>
       </Flex>
+      {children}
     </Flex>
   );
 }
