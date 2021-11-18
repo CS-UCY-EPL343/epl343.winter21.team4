@@ -20,10 +20,7 @@ import {
   IconButton,
   Image,
 } from "@chakra-ui/react";
-import { FaCar } from "react-icons/fa";
 import React from "react";
-import ReactDOM from "react-dom";
-import ReactSearchBox from "react-search-box";
 import {
   BrowserRouter,
   Route,
