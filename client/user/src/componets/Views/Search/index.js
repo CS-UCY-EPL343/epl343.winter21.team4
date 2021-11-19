@@ -36,10 +36,10 @@ export default function Search() {
   const [value, setValue] = React.useState("");
 
   return (
-    <Box alignSelf="center">
-      <Heading paddingTop="10" alignSelf="center">Search For Parking</Heading>
+    <Stack width="-webkit-fill-available" align="center">
+      <Heading paddingTop="10" alignSelf="center" alignItems="center">Search For Parking</Heading>
       <Stack paddingTop="5">
-        <Box boxSize="xl">
+        <Stack >
           <NumberInput
             onChange={(valueString) => setValue(valueString)}
             value={value}
@@ -82,8 +82,8 @@ export default function Search() {
               </HStack>
             </div>
           ))}
-        </Box>
+        </Stack>
       </Stack>
-    </Box>
+    </Stack>
   );
 }

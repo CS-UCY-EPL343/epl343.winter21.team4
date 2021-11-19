@@ -27,10 +27,10 @@ import LandingPage from "../../LandingPage";
 
 export default function Card() {
   return (
-    <Box alignSelf="center">
-        <Stack>
+        <Stack width="-webkit-fill-available">
         <Heading paddingTop="10" alignSelf="center">Card Info</Heading>
-         <Button size="xl" backgroundColor="gray.300" borderRadius="15">
+        <Stack width="min-content" alignSelf="center">
+         <Button size="xl"  borderRadius="15" backgroundColor="gray.300" >
            <HStack paddingTop="3" paddingBottom="3" paddingLeft="3" paddingRight="3">
             <FaCcMastercard size="50" paddingLeft="5"/>
             <Text >
@@ -62,7 +62,7 @@ export default function Card() {
             </Text>
            </HStack>
          </Button>
+         </Stack>
         </Stack>
-    </Box>
   );
 }
