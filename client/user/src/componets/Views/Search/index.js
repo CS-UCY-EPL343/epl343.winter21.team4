@@ -15,8 +15,12 @@ import {
   formState,
   form,
   Link,
+  NumberInput,
+  NumberInputField,
+  IconButton,
+  Image,
 } from "@chakra-ui/react";
-import { FaCar } from "react-icons/fa";
+import React from "react";
 import {
   BrowserRouter,
   Route,
@@ -24,10 +28,62 @@ import {
   Link as RouterLink,
 } from "react-router-dom";
 import LandingPage from "../../LandingPage";
-import { facar } from "react-icons/fa";
-import Layout from "../NavigationBar/Layout";
+import { useState } from "react";
+import Data from "./MOCK_DATA.json";
 
 export default function Search() {
-  return (<Text>Kokos</Text>)
-  
+  const [symbolsArr] = useState(["e", "E", "+", "-", "."]);
+  const [value, setValue] = React.useState("");
+
+  return (
+    <Stack width="-webkit-fill-available" align="center">
+      <Heading paddingTop="10" alignSelf="center" alignItems="center">Search For Parking</Heading>
+      <Stack paddingTop="5">
+        <Stack >
+          <NumberInput
+            onChange={(valueString) => setValue(valueString)}
+            value={value}
+            max={9999}
+            clampValueOnBlur={false}
+            isRequired={true}
+            inputMode="numeric"
+            onKeyDown={(e) => symbolsArr.includes(e.key) && e.preventDefault()}
+          >
+            <NumberInputField
+              placeholder="#"
+              maxLength="4"
+              id="searchBox"
+              name="box"
+            ></NumberInputField>
+          </NumberInput>
+
+
+          {Data.filter((parking) => {
+            if (value === "") {
+              return null;
+            } else if (parking.id == value) {
+              return parking;
+            }
+          }).map((parking, index) => (
+            <div key={index}>
+              <HStack paddingTop="5" >
+                <Image src={parking.picture} borderRadius="15" />
+                <Stack >
+                  <Text alignSelf="baseline">
+                    {parking.parkingName}
+                    {<br />}
+                    {parking.address} {parking.addressNumber}
+                    {<br />}
+                    {parking.city}, {parking.postCode}
+                    {<br />}
+                  </Text>
+                  <Text align="right">Price: €{parking.price}</Text>
+                </Stack>
+              </HStack>
+            </div>
+          ))}
+        </Stack>
+      </Stack>
+    </Stack>
+  );
 }

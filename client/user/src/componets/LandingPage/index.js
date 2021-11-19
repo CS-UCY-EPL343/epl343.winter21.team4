@@ -20,17 +20,11 @@ import {
 export default function LandingPage() {
   return (
     <Stack
-      bgColor="#16DABF"
-      alignContent="center"
-      textAlign="centre"
-      display="flex"
-      flexDirection="column"
-      boxSize="3xl"
-      blockSize="full"
-      width="full"
-      height="full"
-      minHeight="full"
-      minWidth="full"
+      direction="column"
+      justify="center"
+      px={{ sm: 4, lg: 8 }}
+      minH="full"
+      bg="#16DABF"
     >
       <Heading
         mt={6}

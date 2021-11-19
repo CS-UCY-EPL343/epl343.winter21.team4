@@ -28,15 +28,13 @@ import Password from "../Password";
 
 export default function LogIn() {
   return (
-    <Flex
+    <Stack
       direction="column"
       justify="center"
-      py={12}
       px={{ sm: 4, lg: 8 }}
       minH="full"
       bg="#16DABF"
     >
-      <Box mx={{ sm: "auto" }} w={{ sm: "full" }} maxW={{ sm: "md" }}>
         <Heading
           mt={6}
           textAlign="center"
@@ -89,7 +87,6 @@ export default function LogIn() {
             </Link>
           </Stack>
         </Stack>
-      </Box>
-    </Flex>
+    </Stack>
   );
 }

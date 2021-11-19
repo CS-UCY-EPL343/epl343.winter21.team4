@@ -16,7 +16,7 @@ import {
   form,
   Link,
 } from "@chakra-ui/react";
-import { FaCar } from "react-icons/fa";
+import { FaCar,FaCcMastercard,FaPlus,FaCcVisa } from "react-icons/fa";
 import {
   BrowserRouter,
   Route,
@@ -27,9 +27,42 @@ import LandingPage from "../../LandingPage";
 
 export default function Card() {
   return (
-    <Link as={RouterLink} to="/card">
-      <Text>THIS IS THE SEARCH PAGE</Text>
-      <Button width="full">GO TO PROFILE</Button>
-    </Link>
+        <Stack width="-webkit-fill-available">
+        <Heading paddingTop="10" alignSelf="center">Card Info</Heading>
+        <Stack width="min-content" alignSelf="center">
+         <Button size="xl"  borderRadius="15" backgroundColor="gray.300" >
+           <HStack paddingTop="3" paddingBottom="3" paddingLeft="3" paddingRight="3">
+            <FaCcMastercard size="50" paddingLeft="5"/>
+            <Text >
+              **** **** **** 1234
+              {<br />}
+              Sophoclis Kyriacou
+              {<br />}
+              Mastercard
+            </Text>
+           </HStack>
+         </Button>
+         <Button size="xl" backgroundColor="gray.300" borderRadius="15">
+           <HStack paddingTop="3" paddingBottom="3" paddingLeft="3" paddingRight="3">
+            <FaCcVisa size="50" paddingLeft="5"/>
+            <Text >
+              **** **** **** 1234
+              {<br />}
+              Stylianos Sofokleous
+              {<br />}
+              Visa
+            </Text>
+           </HStack>
+         </Button>
+         <Button backgroundColor="gray.300" borderRadius="15" width="full" textAlign="center">
+           <HStack >
+            <FaPlus/>
+            <Text>
+              ADD NEW CARD
+            </Text>
+           </HStack>
+         </Button>
+         </Stack>
+        </Stack>
   );
 }
