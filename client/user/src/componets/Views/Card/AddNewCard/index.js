@@ -31,7 +31,7 @@ import {
           <Heading paddingTop="10" alignSelf="center">Card Details</Heading>
           <Stack width="min-content" alignSelf="center">
            
-           </Stack>
+          </Stack>
           </Stack>
     );
   }

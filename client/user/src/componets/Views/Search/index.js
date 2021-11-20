@@ -15,75 +15,28 @@ import {
   formState,
   form,
   Link,
-  NumberInput,
-  NumberInputField,
-  IconButton,
-  Image,
 } from "@chakra-ui/react";
-import React from "react";
+import { FaCar,FaCcMastercard,FaPlus,FaCcVisa } from "react-icons/fa";
 import {
   BrowserRouter,
   Route,
   Switch,
+  useRouteMatch,
   Link as RouterLink,
 } from "react-router-dom";
-import LandingPage from "../../LandingPage";
-import { useState } from "react";
-import Data from "./MOCK_DATA.json";
+import Search from "./SearchPage";
+import ParkingProfile from "../Parking/ParkingProfile";
 
-export default function Search() {
-  const [symbolsArr] = useState(["e", "E", "+", "-", "."]);
-  const [value, setValue] = React.useState("");
-
+export default function Card() {
+  const {path,url}=useRouteMatch();
   return (
-    <Stack width="-webkit-fill-available" align="center">
-      <Heading paddingTop="10" alignSelf="center" alignItems="center">Search For Parking</Heading>
-      <Stack paddingTop="5">
-        <Stack >
-          <NumberInput
-            onChange={(valueString) => setValue(valueString)}
-            value={value}
-            max={9999}
-            clampValueOnBlur={false}
-            isRequired={true}
-            inputMode="numeric"
-            onKeyDown={(e) => symbolsArr.includes(e.key) && e.preventDefault()}
-          >
-            <NumberInputField
-              placeholder="#"
-              maxLength="4"
-              id="searchBox"
-              name="box"
-            ></NumberInputField>
-          </NumberInput>
-
-
-          {Data.filter((parking) => {
-            if (value === "") {
-              return null;
-            } else if (parking.id == value) {
-              return parking;
-            }
-          }).map((parking, index) => (
-            <div key={index}>
-              <HStack paddingTop="5" >
-                <Image src={parking.picture} borderRadius="15" />
-                <Stack >
-                  <Text alignSelf="baseline">
-                    {parking.parkingName}
-                    {<br />}
-                    {parking.address} {parking.addressNumber}
-                    {<br />}
-                    {parking.city}, {parking.postCode}
-                    {<br />}
-                  </Text>
-                  <Text align="right">Price: €{parking.price}</Text>
-                </Stack>
-              </HStack>
-            </div>
-          ))}
-        </Stack>
-      </Stack>
-    </Stack>
+        <Switch>
+          <Route exact path={path}>
+            <Search url={url}/>
+          </Route>
+          <Route path={`${path}/:id`}>
+            <ParkingProfile url={url}/>
+          </Route>
+        </Switch>
   );
 }
