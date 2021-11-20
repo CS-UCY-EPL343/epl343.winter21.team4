@@ -26,6 +26,7 @@ import {
   } from "react-router-dom";
   
   export default function ParkingProfile(url) {
+    
     return (
       <Stack width="-webkit-fill-available">
         <Heading paddingTop="10" alignSelf="center">--Parking Profile--</Heading>

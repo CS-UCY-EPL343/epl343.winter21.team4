@@ -69,20 +69,20 @@ export default function Search(url) {
           }).map((parking, index) => (
             <div key={index}>
               <Link as={NavLink} to={`${pathname}/${parking.id}`}>
-              <HStack paddingTop="5" >
-                <Image src={parking.picture} borderRadius="15" />
-                <Stack >
-                  <Text alignSelf="baseline">
-                    {parking.parkingName}
-                    {<br />}
-                    {parking.address} {parking.addressNumber}
-                    {<br />}
-                    {parking.city}, {parking.postCode}
-                    {<br />}
-                  </Text>
-                  <Text align="right">Price: €{parking.price}</Text>
-                </Stack>
-              </HStack>
+                <HStack paddingTop="5" >
+                  <Image src={parking.picture} borderRadius="15" />
+                  <Stack >
+                    <Text alignSelf="baseline">
+                      {parking.parkingName}
+                      {<br />}
+                      {parking.address} {parking.addressNumber}
+                      {<br />}
+                      {parking.city}, {parking.postCode}
+                      {<br />}
+                    </Text>
+                    <Text align="right">Price: €{parking.price}</Text>
+                  </Stack>
+                </HStack>
               </Link>
             </div>
           ))}
