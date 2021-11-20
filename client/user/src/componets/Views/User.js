@@ -8,6 +8,7 @@ import Layout from "./NavigationBar/Layout";
 import Card from "./Card";
 import Info from "./Info";
 import LogIn from "../Authentication/Login";
+import Home from "./Home";
 
 export default function User() {
   return (
@@ -15,14 +16,17 @@ export default function User() {
       <BrowserRouter basename="/user">
         <Layout>
           <Switch>
-            <Route path="/profile">
-              <Profile />
+            <Route path="/home">
+              <Home />
             </Route>
             <Route path="/search">
               <Search />
             </Route>
             <Route path="/card">
               <Card />
+            </Route>
+            <Route path="/profile">
+              <Profile />
             </Route>
             <Route path="/info">
               <Info />

@@ -17,7 +17,7 @@ import {
   HiOutlineShoppingBag,
 } from "react-icons/hi";
 import { AiOutlineSetting } from "react-icons/ai";
-import { FaSearch } from "react-icons/fa";
+import { FaSearch,FaHome } from "react-icons/fa";
 import { FaUserCog } from "react-icons/fa";
 import { FaCar, FaInfoCircle } from "react-icons/fa";
 import { BsFillCreditCardFill } from "react-icons/bs";
@@ -47,6 +47,37 @@ export default function Layout({children}) {
             </Flex>
             <Stack flex={1} overflowY="auto">
               <Stack as="nav" flex={1} spacing={0}>
+              <Link
+                  as={RouterLink}
+                  to="/home"
+                  style={{ textDecoration: "none" }}
+                >
+                  <HStack
+                    align="center"
+                    px={4}
+                    py={3}
+                    fontWeight="medium"
+                    fontSize="sm"
+                    textColor="red"
+                    lineHeight={5}
+                    spacing={2}
+                    activeStyle={{
+                      color: "gray.300",
+                    }}
+                    _hover={{ bg: "gray.300" }}
+                  >
+                    <Icon
+                      as={FaHome}
+                      w={{ base: 8, lg: 6 }}
+                      h={{ base: 8, lg: 6 }}
+                      color="white"
+                    />
+                    <Text display={{ base: "none", lg: "block" }} color="white">
+                      {"Home"}
+                    </Text>
+                  </HStack>
+                </Link>
+
                 <Link
                   as={RouterLink}
                   to="/search"
