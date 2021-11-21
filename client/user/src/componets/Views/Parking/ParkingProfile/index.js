@@ -14,62 +14,101 @@ import {
     HStack,
     formState,
     form,
+    Image,
     Link,
+    List,
+    ListIcon,
+    ListItem,
   } from "@chakra-ui/react";
-  import { FaCar,FaPhoneAlt,FaEnvelope,FaUserEdit,FaPlus, FaBook } from "react-icons/fa";
+  import { FaCar,FaPhoneAlt,FaEnvelope,FaUserEdit,FaPlus, FaDotCircle, FaParking,FaStar, FaCheckCircle} from "react-icons/fa";
   import { HiUserGroup} from "react-icons/hi";
   import {
     BrowserRouter,
     Route,
     Switch,
     Link as RouterLink,
+    Pathname,
   } from "react-router-dom";
-  
+  import Data from "./../../Search/SearchPage/MOCK_DATA.json"
   export default function ParkingProfile(url) {
-    
+    const parkingId = window.location.pathname.split("/").pop();
+
+    {Data.filter((parking) => {
+      if (parking.id == parseInt(parkingId)) {
+        return parking;
+      }else{
+        return null;
+      }
+    }).map((parking, index) => (
+      <div key={index}>
+     
+      </div>
+    ))}
+
+
     return (
       <Stack width="-webkit-fill-available">
-        <Heading paddingTop="10" alignSelf="center">--Parking Profile--</Heading>
-        <Text align="center" fontSize="37" color="#7e7e7e">Sophoclis Kyriacou</Text>
-        <Stack alignSelf="center">
-          <Stack paddingLeft="5" textColor="#c1c1c1">
-            <HStack>
-              <FaPhoneAlt/>
-              <Text >+35799299611</Text>
-            </HStack>
-            <HStack>
-              <FaEnvelope/>
-              <Text >skyria10@ucy.ac.cy</Text>
-            </HStack>
-            <HStack>
-              <FaUserEdit/>
-              <Text >Edit</Text>
-            </HStack>
-          </Stack>
-          <HStack paddingTop="10" paddingBottom="10" textColor="white">
-            <Button bgColor="#16DABF" size="md"> 
-              <Text>Balance: 13.00</Text>
-            </Button>
-            <Button bgColor="#16DABF" size="md">
-              <HStack>
-                <FaPlus/>
-                <Text>ADD MONEY</Text>
-              </HStack>
-            </Button>
+        {Data.filter((parking) => {
+      if (parking.id == parseInt(parkingId)) {
+        return parking;
+      }else{
+        return null;
+      }
+    }).map((parking, index) => (
+      <div key={index}>
+      <Stack width="-webkit-fill-available">
+      <Image alignSelf="center" boxSize="350" src={parking.picture} borderRadius="15" />
+      <HStack alignSelf="center">
+        <FaParking size="50"/>
+        <Heading alignSelf="center">{parking.parkingName}</Heading>
+      </HStack>
+      <Stack alignSelf="center" alignItems="center">
+        <Text color="#7e7e7e">{parking.address} {parking.addressNumber}, {parking.city}, {parking.postCode}</Text>
+        <HStack>
+          <Text color="#7e7e7e">Price: {parking.price}</Text>
+          <HStack paddingLeft="20">
+            <FaStar color="#ECC94B"/>
+            <Text color="#7e7e7e">{parking.avgRating}({parking.totalRatings})</Text>
           </HStack>
-          <Stack textColor="#c1c1c1">
+        </HStack>
+        <List paddingTop="7" spacing={1} alignItems="center" >
+          {parking.features.guard == "true" ?
+          <ListItem>
+            <ListIcon as={FaDotCircle} color="green.500" />
+            Guard on the parking
+          </ListItem>
+          :""
+          }
+          {parking.features.asphalt == "true" ?
+          <ListItem>
+            <ListIcon as={FaDotCircle} color="green.500" />
+            Asphalt
+          </ListItem>
+          :""
+          }
+          {parking.features.cctv == "true" ?
+          <ListItem>
+            <ListIcon as={FaDotCircle} color="green.500" />
+              CCTV 24h
+          </ListItem>
+          :""
+          }
+        </List>
+        <Flex paddingTop="150" width="100%">
+        <Button bgColor="#16DABF" size="md" width="100%" alignSelf="center" textColor="white" >
             <HStack>
-              <FaBook/>
-              <Text>Transaction History</Text>
+              <FaPlus/>
+              <Text >PAY NOW</Text>
             </HStack>
-            <HStack>
-              <HiUserGroup/>
-              <Text>Tell your friends</Text>
-            </HStack>
-          </Stack>
-        </Stack>
-        
+      </Button>
+      </Flex>
       </Stack>
+      
+      
+      </Stack>
+      </div>
+    ))}
+    </Stack>
     );
   }
   
