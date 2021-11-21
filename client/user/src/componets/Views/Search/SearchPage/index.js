@@ -63,7 +63,7 @@ export default function Search(url) {
           {Data.filter((parking) => {
             if (value === "") {
               return null;
-            } else if (parking.id == value) {
+            } else if (parking.id.match(value)) {
               return parking;
             }
           }).map((parking, index) => (
