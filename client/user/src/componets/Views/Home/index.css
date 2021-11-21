@@ -1,0 +1,10 @@
+#wrapper {
+  display: flex;
+  border: 1px solid black;
+}
+#first {
+  border: 1px solid red;
+}
+#second {
+  border: 1px solid green;
+}
