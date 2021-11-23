@@ -32,20 +32,7 @@ import {
   import Data from "./../../Search/SearchPage/MOCK_DATA.json"
   export default function ParkingProfile(url) {
     const parkingId = window.location.pathname.split("/").pop();
-
-    {Data.filter((parking) => {
-      if (parking.id == parseInt(parkingId)) {
-        return parking;
-      }else{
-        return null;
-      }
-    }).map((parking, index) => (
-      <div key={index}>
-     
-      </div>
-    ))}
-
-
+    const parkingConst={};
     return (
       <Stack width="-webkit-fill-available">
         {Data.filter((parking) => {
