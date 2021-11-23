@@ -27,7 +27,7 @@ import {
 import Search from "./SearchPage";
 import ParkingProfile from "../Parking/ParkingProfile";
 
-export default function Card() {
+export default function SearchPage() {
   const {path,url}=useRouteMatch();
   return (
         <Switch>

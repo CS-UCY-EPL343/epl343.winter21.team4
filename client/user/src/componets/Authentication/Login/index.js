@@ -45,7 +45,7 @@ export default function LogIn() {
           <Text>ParkPick</Text>
         </Heading>
         <Stack
-          bgColor="16DABF"
+          bgColor="#16DABF"
           alignContent="center"
           textAlign="centre"
           display="flex"
