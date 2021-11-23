@@ -13,7 +13,7 @@ import Home from "./Home";
 export default function User() {
   return (
     <Box h="100vh" bg="gray.50">
-      <BrowserRouter basename="/user">
+      <BrowserRouter basename="/user" >
         <Layout>
           <Switch>
             <Route path="/home">

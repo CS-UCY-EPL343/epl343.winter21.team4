@@ -82,7 +82,7 @@ export default function LogIn() {
 
             <Password />
 
-            <Link as={RouterLink} to="/user">
+            <Link as={RouterLink} to="/user/home">
               <Button width="full">LOG IN</Button>
             </Link>
           </Stack>
