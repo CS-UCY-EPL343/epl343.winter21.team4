@@ -59,7 +59,7 @@ export default function Search(url) {
             ></NumberInputField>
           </NumberInput>
 
-
+          <Stack height="100%">
           {Data.filter((parking) => {
             if (value === "") {
               return null;
@@ -68,7 +68,7 @@ export default function Search(url) {
             }
           }).map((parking, index) => (
             <div key={index}>
-              <Link as={NavLink} to={`${pathname}/${parking.id}`}>
+              <Link as={NavLink} to={`${pathname}/${parking.id}`} over>
                 <HStack paddingTop="5" >
                   <Image src={parking.picture} borderRadius="15" />
                   <Stack >
@@ -86,6 +86,7 @@ export default function Search(url) {
               </Link>
             </div>
           ))}
+          </Stack>
         </Stack>
       </Stack>
     </Stack>
