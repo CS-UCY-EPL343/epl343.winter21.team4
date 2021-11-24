@@ -24,7 +24,6 @@ import {
   Switch,
   Link as RouterLink,
 } from "react-router-dom";
-import LandingPage from "../../LandingPage";
 import { facar,FaInfoCircle } from "react-icons/fa";
 import Layout from "../NavigationBar/Layout";
 import {
