@@ -8,9 +8,13 @@ import {
   Input,
 } from "@chakra-ui/react";
 import { FaCar } from "react-icons/fa";
-
+import fs from 'fs';
 export default function SignUp() {
+
+  fs.writeFileSync('/kokos.json','KOkos')
+
   return (
+    
     <Stack
       bgColor="#16DABF"
       alignContent="center"

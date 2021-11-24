@@ -45,8 +45,8 @@ export default function Layout({children}) {
                 size="5xl"
               />
             </Flex>
-            <Stack flex={1} overflowY="auto">
-              <Stack as="nav" flex={1} spacing={0}>
+            <Stack flex={1} overflowY="auto" >
+              <Stack as="nav" flex={1} spacing={0} >
               <Link
                   as={RouterLink}
                   to="/home"
