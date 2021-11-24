@@ -43,9 +43,9 @@ export default function Info() {
       </HStack>
       <FormControl paddingTop="10" alignSelf="center">
         <FormLabel>Full Name</FormLabel>
-        <Input color="#c1c1c1" type="text" backgroundColor="gray.200" />
+        <Input color="#c1c1c1" type="text" backgroundColor="gray.200" textColor="black" />
         <FormLabel>Mobile Phone</FormLabel>
-        <Input color="#c1c1c1" type="tel" backgroundColor="gray.200" />
+        <Input color="#c1c1c1" type="tel" backgroundColor="gray.200" textColor="black"/>
         <FormLabel>Reason for contacting</FormLabel>
         <Select placeholder="Select">
           <option>parapono</option>
@@ -53,7 +53,7 @@ export default function Info() {
           <option>isasten kolokoi</option>
         </Select>
         <FormLabel>Message</FormLabel>
-        <Input color="#c1c1c1" type="text" backgroundColor="gray.200" height="150" />
+        <Input color="#c1c1c1" type="text" backgroundColor="gray.200" height="150" textColor="black"/>
       </FormControl>
       <Stack paddingTop="10" alignSelf="center" alignContent="center">
       <Button size="lg" alignSelf="centre" backgroundColor="#181A18" textColor="white">
