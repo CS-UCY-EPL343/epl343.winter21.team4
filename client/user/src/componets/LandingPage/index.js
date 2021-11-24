@@ -33,7 +33,7 @@ export default function LandingPage() {
         fontWeight="extrabold"
         color="black"
       >
-        <Text>ParkPick</Text>
+        <Text>ParkPick2222</Text>
       </Heading>
       <Box alignSelf="center">
         <Icon
