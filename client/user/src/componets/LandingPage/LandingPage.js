@@ -37,12 +37,7 @@ export default function LandingPageLayout({children}) {
         <Text>ParkPick</Text>
       </Heading>
       <Box alignSelf="center">
-        <Icon
-          alignItems="center"
-          as={FaCar}
-          boxSize="3xs"
-          alignContent="center"
-        />
+        <FaCar alignItems="center" alignContent="center" size="100" />
       </Box>
 
       {children}
