@@ -9,7 +9,7 @@ import User from "./Views/User.js";
 export function Unauthorized() {
   return (
     <Box h="100vh" bg="gray.50">
-      <BrowserRouter basename="/user">
+      <BrowserRouter >
         <Switch>
           <Route exact path="/login">
             <LogIn />
@@ -17,7 +17,7 @@ export function Unauthorized() {
           <Route exact path="/signup">
             <SignUp />
           </Route>
-          <Route exact path="/user">
+          <Route exact path="/user/home">
             <User />
           </Route>
           <Route exact path="/onetimepayment"></Route>
