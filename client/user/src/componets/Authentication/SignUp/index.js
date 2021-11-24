@@ -11,7 +11,7 @@ import { FaCar } from "react-icons/fa";
 import fs from 'fs';
 export default function SignUp() {
 
-  fs.writeFileSync('/kokos.json','KOkos')
+  //fs.writeFileSync('/kokos.json','KOkos')
 
   return (
     
