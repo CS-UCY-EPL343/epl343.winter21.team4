@@ -31,5 +31,5 @@ jobs:
         cache-dependency-path: '**/package-lock.json'
         
     - run: npm install
-    - run: npm run clean
+    - run: npm start
 
