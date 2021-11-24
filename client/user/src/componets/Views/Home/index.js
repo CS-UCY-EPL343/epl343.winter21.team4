@@ -32,48 +32,54 @@ import {
 import { useState } from "react";
 import Data from "./MOCK_DATA.json";
 import { Grid, GridItem } from "@chakra-ui/layout";
-import {MdOutlineSendToMobile} from "react-icons"
+import { MdOutlineSendToMobile } from "react-icons"
 export default function Home(url) {
   const [symbolsArr] = useState(["e", "E", "+", "-", "."]);
   const [value, setValue] = React.useState("");
   const { pathname } = useLocation();
 
   return (
-    <Stack width="-webkit-fill-available" align="center">
-      <Heading paddingTop="10" alignSelf="center" alignItems="center">
+    <Stack bgColor="#16DABF" height="100%" width="-webkit-fill-available" alignSelf="center" bgSize="auto">
         <Box
+          alignSelf="center"
           bg="#16DABF"
-          //w="60%"
-          //h="40%"
+          // width="-webkit-fill-available"
+          // h="50%"
           p={3}
           color="white"
           borderRadius="lg"
-          style={{
-            position: 'absolute', left: '50%', top: '50%',
-            transform: 'translate(-50%, -50%)'
-          }}
+        // style={{
+        //   position: 'absolute', left: '50%', top: '50%',
+        //   transform: 'translate(-50%, -50%)'
+        // }}
         >
           <Grid
             gap={0}
-            templateRows="repeat(1, 1fr)"
-            templateColumns="repeat(2, 1fr)"
+            templateRows="repeat(2, 1fr)"
+            templateColumns="repeat(1, 1fr)"
           >
             <GridItem rowSpan={1} colSpan={1} w="100%" h="100%">
-              <Text fontSize="2xl" textAlign={['left']} >The easiest{<br/>} way {<br/>}to park</Text>
+              {/* <Image boxSize="160px" objectFit="cover" src="https://i.imgur.com/ih8xulQ.png" alt="alt" /> */}
+              <Image
+                alignSelf="center"
+                boxSize="250"
+                src="https://i.imgur.com/ToXj5Lk.png"
+                borderRadius="15"
+                alt="Holding Phone Car Checkmark"
+              />
             </GridItem>
-            <GridItem rowSpan={5} colSpan={1} w="100%" h="100%">
-              <Image boxSize="160px" objectFit="cover" src="https://i.imgur.com/ih8xulQ.png" alt="alt" /> 
+            <GridItem rowSpan={1} colSpan={1} w="100%" h="100%">
+              <Text fontSize="4xl" textAlign={['right']} >The easiest{<br />} way to {<br />} park</Text>
             </GridItem>
+
           </Grid>
-          
+
           <Link as={RouterLink} to="/search">
             <Button colorScheme="teal" variant="outline">
               Get Started
             </Button>
           </Link>
         </Box>
-      </Heading>
-      <Stack paddingTop="5"></Stack>
     </Stack>
   );
 }
