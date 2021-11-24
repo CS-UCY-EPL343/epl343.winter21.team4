@@ -9,6 +9,7 @@ import {
   Button,
   HStack,
   Icon,
+  Image
 } from "@chakra-ui/react";
 import { NavLink as RouterLink } from "react-router-dom";
 import {
@@ -22,6 +23,7 @@ import { FaUserCog } from "react-icons/fa";
 import { FaCar, FaInfoCircle } from "react-icons/fa";
 import { BsFillCreditCardFill } from "react-icons/bs";
 import { MdOutlineLogout } from "react-icons/md";
+import logo from "./../../Logos/logo_no_caption.svg"
 
 export default function Layout({children}) {
   return (
@@ -29,22 +31,8 @@ export default function Layout({children}) {
       <Flex flexShrink={0}>
         <Stack w={{ base: 16, lg: 64 }}>
           <Stack flex={1} h={0} bg="#16DABF" spacing={0}>
-            <Flex
-              h={16}
-              align="center"
-              justify="center"
-              flexShrink={0}
-              px={4}
-              display={{ base: "none", lg: "flex" }}
-            >
-              <Icon
-                as={FaCar}
-                width="30"
-                height="30"
-                color="white"
-                size="5xl"
-              />
-            </Flex>
+            
+            <Image src={logo} blockSize="10" paddingTop="4"/>
             <Stack flex={1} overflowY="auto" >
               <Stack as="nav" flex={1} spacing={0} >
               <Link
