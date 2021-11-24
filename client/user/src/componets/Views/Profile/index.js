@@ -15,6 +15,7 @@ import {
   formState,
   form,
   Link,
+  Image
 } from "@chakra-ui/react";
 import { FaCar,FaPhoneAlt,FaEnvelope,FaUserEdit,FaPlus, FaBook } from "react-icons/fa";
 import { HiUserGroup} from "react-icons/hi";
