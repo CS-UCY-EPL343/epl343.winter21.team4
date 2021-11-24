@@ -5,7 +5,7 @@ import { Button } from "@chakra-ui/button";
 import { Stack } from "@chakra-ui/layout";
 
 // Input Password Component
-export default function Password() {
+export default function Password(props) {
   // Initialize a boolean state
   const [passwordShown, setPasswordShown] = useState(false);
 
