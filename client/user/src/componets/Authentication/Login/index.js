@@ -26,7 +26,7 @@ import {
 import LandingPage from "../../LandingPage";
 import Password from "../Password";
 
-export default function LogIn() {
+export default function LogIn(url) {
   return (
     <Stack
       direction="column"
