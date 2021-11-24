@@ -37,6 +37,9 @@ export default function Card() {
           <Route path={`${path}/addnewcard`}>
             <AddNewCard/>
           </Route>
+          <Route path={`${path}/paynow`}>
+            kdsjnj
+          </Route>
         </Switch>
   );
 }

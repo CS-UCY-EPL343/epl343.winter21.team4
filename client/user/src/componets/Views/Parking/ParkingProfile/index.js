@@ -43,10 +43,9 @@ import {
 } from "react-router-dom";
 import Data from "./../../Search/SearchPage/MOCK_DATA.json";
 
-export default function ParkingProfiles(url) {
-  const parkingId = window.location.pathname.split("/").pop();
-  const parkingConst = {};
+export default function ParkingProfiles(url) {  
   const { pathname } = useLocation();
+  const parkingId = window.location.pathname.split("/").pop();
 
   return (
     <Stack width="-webkit-fill-available">
@@ -110,7 +109,7 @@ export default function ParkingProfiles(url) {
                 )}
               </List>
               <Flex paddingTop="150" width="100%">
-                <Link as={NavLink} to={`${pathname}/paynow`} alignSelf="center">
+                <Link as={NavLink} to={`${pathname}/addnewcard`} alignSelf="center">
                   <Button
                     bgColor="#16DABF"
                     size="md"
