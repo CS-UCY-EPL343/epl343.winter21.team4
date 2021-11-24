@@ -6,12 +6,13 @@ import {
   Stack,
   Icon,
   Input,
+  Link,
 } from "@chakra-ui/react";
 import { FaCar } from "react-icons/fa";
 import fs from 'fs';
+import { Link as RouterLink } from "react-router-dom";
 export default function SignUp() {
 
-  fs.writeFileSync('/kokos.json','KOkos')
 
   return (
     
@@ -28,14 +29,7 @@ export default function SignUp() {
       minHeight="full"
       minWidth="full"
     >
-      <Box alignSelf="center">
-        <Icon
-          alignItems="center"
-          as={FaCar}
-          boxSize="3xs"
-          alignContent="center"
-        />
-      </Box>
+
 
       <Heading
         mt={6}
@@ -70,6 +64,9 @@ export default function SignUp() {
           placeholder="Repeat Password"
           type="password"
         />
+        <Link as={RouterLink} to="/login">
+          <Button width="full">SIGN UP</Button>
+        </Link>
       </Stack>
     </Stack>
   );
