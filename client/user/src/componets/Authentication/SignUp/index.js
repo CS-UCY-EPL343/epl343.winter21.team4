@@ -11,7 +11,6 @@ import { FaCar } from "react-icons/fa";
 import fs from 'fs';
 export default function SignUp() {
 
-  fs.writeFileSync('/kokos.json','KOkos')
 
   return (
     
@@ -28,14 +27,7 @@ export default function SignUp() {
       minHeight="full"
       minWidth="full"
     >
-      <Box alignSelf="center">
-        <Icon
-          alignItems="center"
-          as={FaCar}
-          boxSize="3xs"
-          alignContent="center"
-        />
-      </Box>
+
 
       <Heading
         mt={6}

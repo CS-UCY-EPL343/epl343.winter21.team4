@@ -35,36 +35,7 @@ export default function LogIn(url) {
       minH="full"
       bg="#16DABF"
     >
-        <Heading
-          mt={6}
-          textAlign="center"
-          fontSize="7xl"
-          fontWeight="extrabold"
-          color="black"
-        >
-          <Text>ParkPick</Text>
-        </Heading>
-        <Stack
-          bgColor="#16DABF"
-          alignContent="center"
-          textAlign="centre"
-          display="flex"
-          flexDirection="column"
-          boxSize="3xl"
-          blockSize="full"
-          width="full"
-          height="full"
-          minHeight="full"
-          minWidth="full"
-        >
-          <Box alignSelf="center">
-            <Icon
-              alignItems="center"
-              as={FaCar}
-              boxSize="3xs"
-              alignContent="center"
-            />
-          </Box>
+        
 
           <Heading
             mt={6}
@@ -87,6 +58,5 @@ export default function LogIn(url) {
             </Link>
           </Stack>
         </Stack>
-    </Stack>
   );
 }

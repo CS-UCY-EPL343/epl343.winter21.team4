@@ -11,12 +11,12 @@ export function Unauthorized() {
     <Box h="100vh" bg="gray.50">
       <BrowserRouter >
         <Switch>
-          <Route exact path="/login">
+          {/* <Route exact path="/login">
             <LogIn />
-          </Route>
-          <Route exact path="/signup">
+          </Route> */}
+          {/* <Route exact path="/signup">
             <SignUp />
-          </Route>
+          </Route> */}
           <Route exact path="/user/home">
             <User />
           </Route>

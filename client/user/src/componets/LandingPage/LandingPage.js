@@ -45,18 +45,7 @@ export default function LandingPageLayout({children}) {
           alignContent="center"
         />
       </Box>
-      <Stack width="52" alignSelf="center">
-        <Link as={RouterLink} to="login">
-          <Button width="full">LOG IN</Button>
-        </Link>
 
-        <Link as={RouterLink} to="/signup">
-          <Button width="full">SIGN UP </Button>
-        </Link>
-        <Button width="full">ONE TIME PAYMENT </Button>
-      </Stack>
-      /* by inceasing the size of a box, the outer stack gets bigger and covers
-      the screen */
       {children}
       <Box bgColor="#16DABF" width="full" height="700" minHeight="full"></Box>
     </Stack>

@@ -26,20 +26,26 @@ import {
   } from "react-router-dom";
   import LandingPageLayout from "./LandingPage";
   import Login from "./../Authentication/Login"
+  import SignUp from "../Authentication/SignUp";
+  import ButtonsOfLandingPage from "./ButtonsOfLandingPage";
   
   export default function LandingPage() {
     const {path,url}=useRouteMatch();
     return (
+    <LandingPageLayout>
           <Switch>
-            <LandingPageLayout>
+            <Route  path="/signup">
+                <SignUp/>
+              </Route>
+              <Route  path="/login">
+                <Login/>
+              </Route>
               <Route path="*">
-                <Text>kolokos</Text>
+                <ButtonsOfLandingPage/>
               </Route>
-              <Route path={`${path}/login`}>
-              <Text>kolokos</Text>
-              </Route>
-            </LandingPageLayout>
+            
           </Switch>
+          </LandingPageLayout>
     );
   }
   
