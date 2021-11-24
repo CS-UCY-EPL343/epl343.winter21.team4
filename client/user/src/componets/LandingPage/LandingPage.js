@@ -23,7 +23,6 @@ export default function LandingPageLayout({children}) {
   return (
     <Stack
       direction="column"
-      justify="center"
       px={{ sm: 4, lg: 8 }}
       minH="full"
       bg="#16DABF"
@@ -38,16 +37,10 @@ export default function LandingPageLayout({children}) {
         <Text>ParkPick</Text>
       </Heading>
       <Box alignSelf="center">
-        <Icon
-          alignItems="center"
-          as={FaCar}
-          boxSize="3xs"
-          alignContent="center"
-        />
+        <FaCar alignItems="center" alignContent="center" size="100" />
       </Box>
 
       {children}
-      <Box bgColor="#16DABF" width="full" height="700" minHeight="full"></Box>
     </Stack>
   );
 }

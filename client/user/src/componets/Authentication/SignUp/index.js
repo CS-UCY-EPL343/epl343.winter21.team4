@@ -6,9 +6,11 @@ import {
   Stack,
   Icon,
   Input,
+  Link,
 } from "@chakra-ui/react";
 import { FaCar } from "react-icons/fa";
 import fs from 'fs';
+import { Link as RouterLink } from "react-router-dom";
 export default function SignUp() {
 
 
@@ -62,6 +64,9 @@ export default function SignUp() {
           placeholder="Repeat Password"
           type="password"
         />
+        <Link as={RouterLink} to="/login">
+          <Button width="full">SIGN UP</Button>
+        </Link>
       </Stack>
     </Stack>
   );
