@@ -33,5 +33,5 @@ jobs:
     - run: npm cache clean --force
     - run: rm -rf node_modules package-lock.json
     - run: npm install
-    - run: npm run build --if-present
+    - run: CI= npm run build --if-present
 
