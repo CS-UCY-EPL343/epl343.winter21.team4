@@ -89,6 +89,15 @@ export default function Info() {
           textColor="black"
           name="phone"
         />
+        <FormLabel>Email</FormLabel>
+        <Input
+          color="#c1c1c1"
+          type="email"
+          backgroundColor="gray.200"
+          textColor="black"
+          name="email"
+        />
+
         <FormLabel>Reason for contacting</FormLabel>
         <Select placeholder="Select" name="options">
           <option>parapono</option>
