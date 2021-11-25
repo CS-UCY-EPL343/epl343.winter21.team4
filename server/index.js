@@ -35,31 +35,15 @@ app.get('/view', (req, res) => {
         });
 });
 
-
-// GET: Fetch movie by movieId from the database
-// app.get('/:movieId', (req, res) => {
-//     const movieId = req.params.movieId;
-//     db.select('*')
-//         .from('movies')
-//         .where('movie_id', '=', movieId)
-//         .then((data) => {
-//             console.log(data);
-//             res.json(data);
-//         })
-//         .catch((err) => {
-//             console.log(err);
-//         });
-// });
-
 // POST: Create movies and add them to the database
 app.post('/addUser', (req, res) => {
-     const { id, created, fullname, email} = req.body;
+     const { id_body, created_body, fullname_body, email_body} = req.body;
     db('users')
         .insert({
-            id : req.body.id,
-            created: req.body.created,
-            fullname: req.body.fullname,
-            email: req.body.email
+            id : id_body,
+            created: created_body,
+            fullname: fullname_body,
+            email: email_body
         })
         .then(() => {
             console.log('user added');
