@@ -32,23 +32,6 @@ import ButtonsOfLandingPage from "./ButtonsOfLandingPage";
 export default function LandingPage() {
   const { path, url } = useRouteMatch();
 
-  const getAPI = () => {
-    // Change this endpoint to whatever local or online address you have
-    // Local PostgreSQL Database
-    const API = "http://127.0.0.1:5000/";
-
-    fetch(API)
-      .then((response) => {
-        console.log(response);
-        return response.json();
-      })
-      .then((data) => {
-        console.log(data);
-        setLoading(false);
-        setApiData(data);
-      });
-  };
-
   return (
     <LandingPageLayout>
       <Switch>
