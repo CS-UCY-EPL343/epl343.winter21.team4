@@ -25,8 +25,19 @@ import {
 } from "react-router-dom";
 import LandingPage from "../../LandingPage";
 import Password from "../Password";
+import {isMobile} from 'react-device-detect';
+import * as rdd from 'react-device-detect';
 
 export default function LogIn(url) {
+
+  let formsize=0;
+  //rdd.isMobile=true;
+  if(isMobile){
+    formsize="80%"
+  }else{
+    formsize="20%"
+  }
+
   return (
     <Stack
       direction="column"
@@ -48,7 +59,7 @@ export default function LogIn(url) {
             <Text>Log In to your account</Text>
           </Heading>
 
-          <Stack width="52" alignSelf="center">
+          <Stack width={formsize} alignSelf="center">
             <Input variant="filed" placeholder="Email" />
 
             <Password />

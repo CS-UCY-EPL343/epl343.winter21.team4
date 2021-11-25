@@ -18,7 +18,7 @@ export default function Password() {
 
   return (
     <div>
-      <Stack width="52" alignSelf="center">
+      <Stack alignSelf="center">
         <Input
           variant="filed"
           type={passwordShown ? "text" : "password"}

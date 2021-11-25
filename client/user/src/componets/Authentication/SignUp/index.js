@@ -7,13 +7,23 @@ import {
   Icon,
   Input,
   Link,
+  HStack,
 } from "@chakra-ui/react";
 import { FaCar } from "react-icons/fa";
 import fs from 'fs';
 import { Link as RouterLink } from "react-router-dom";
+import {isMobile} from 'react-device-detect';
+import * as rdd from 'react-device-detect';
+
 export default function SignUp() {
 
-
+  let formsize=0;
+  rdd.isMobile=true;
+  if(isMobile){
+    formsize="80%"
+  }else{
+    formsize="20%"
+  }
   return (
     
     <Stack
@@ -42,14 +52,16 @@ export default function SignUp() {
         <Text>Create a new account</Text>
       </Heading>
 
-      <Stack spacing={3} alignSelf="center">
-        <Input
-          size="md"
-          variant="filled"
-          placeholder="First Name"
-          type="text"
-        />
-        <Input size="md" variant="filled" placeholder="Last Name" type="text" />
+      <Stack spacing={3} alignSelf="center" width={formsize}>
+        <HStack>
+          <Input
+            size="md"
+            variant="filled"
+            placeholder="First Name"
+            type="text"
+          />
+          <Input size="md" variant="filled" placeholder="Last Name" type="text" />
+        </HStack>
         <Input size="md" variant="filled" placeholder="Email" type="email" />
         <Input
           size="md"
