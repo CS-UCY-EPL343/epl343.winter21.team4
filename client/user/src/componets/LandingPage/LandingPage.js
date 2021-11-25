@@ -25,11 +25,14 @@ import * as rdd from 'react-device-detect';
 export default function LandingPageLayout({children}) {
   const { pathname } = useLocation();
   let facarsize=0;
+  let imagewidth=0;
     // rdd.isMobile=true;
     if(isMobile){
       facarsize="100"
+      imagewidth="80%"
     }else{
       facarsize="250"
+      imagewidth="40%"
     }
   return (
     <Stack
@@ -48,7 +51,7 @@ export default function LandingPageLayout({children}) {
         {/* <Text>ParkPick</Text> */}
       </Heading>
 
-      <Image alignSelf="center" width="80%" src={logo} />
+      <Image alignSelf="center" width={imagewidth} src={logo}  />
       <Box alignSelf="center">
         <FaCar alignItems="center" alignContent="center" size={facarsize} />
       </Box>
