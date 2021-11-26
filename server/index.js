@@ -28,7 +28,7 @@ app.get('/view', (req, res) => {
         .from('users')
         .then((data) => {
             console.log(data);
-            res.json(data);
+           return res.redirect("localhost:3000")
         })
         .catch((err) => {
             console.log(err);
@@ -47,7 +47,7 @@ app.post('/addUser', (req, res) => {
         })
         .then(() => {
             console.log('user added');
-            return res.json({ msg: 'user added' });
+            return res.redirect('http://localhost:3000');
         })
         .catch((err) => {
             console.log(err);
