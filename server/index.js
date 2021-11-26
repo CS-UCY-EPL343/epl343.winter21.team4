@@ -1,18 +1,18 @@
-const express = require('express');
-const cors = require('cors');
-const knex = require('knex');
-require('dotenv').config();
+const express = require("express");
+const cors = require("cors");
+const knex = require("knex");
+require("dotenv").config();
 
 const db = knex({
-    client: "pg",
-    connection: {
-      host: "localhost",
-      user: "postgres",
-      port: 5432,
-      password: "postgres",
-      database: "parkpick",
-    },
-  });
+  client: "pg",
+  connection: {
+    host: "localhost",
+    user: "postgres",
+    port: 5432,
+    password: "postgres",
+    database: "parkpick",
+  },
+});
 
 const app = express();
 
@@ -23,35 +23,38 @@ app.use(express.json());
 app.use(cors());
 
 // GET: Fetch all movies from the database
-app.get('/view', (req, res) => {
-    db.select('*')
-        .from('users')
-        .then((data) => {
-            console.log(data);
-           return res.redirect("localhost:3000")
-        })
-        .catch((err) => {
-            console.log(err);
-        });
+app.get("/view", (req, res) => {
+  db.select("*")
+    .from("users")
+    .then((data) => {
+      console.log(data);
+      return res.redirect("localhost:3000");
+    })
+    .catch((err) => {
+      console.log(err);
+    });
 });
 
 // POST: Create movies and add them to the database
-app.post('/addUser', (req, res) => {
-     const { id_body, created_body, fullname_body, email_body} = req.body;
-    db('users')
-        .insert({
-            id : id_body,
-            created: created_body,
-            fullname: fullname_body,
-            email: email_body
-        })
-        .then(() => {
-            console.log('user added');
-            return res.redirect('http://localhost:3000');
-        })
-        .catch((err) => {
-            console.log(err);
-        });
+app.post("/addUser", (req, res) => {
+  const { id_body, created_body, firstname_body, email_body,lastname_body,phone_body,password_body } = req.body;
+  db("users")
+    .insert({
+      id: id_body,
+      created: created_body,
+      firstname: firstname_body,
+      email: email_body,
+      lastname: lastname_body,
+      phone: phone_body,
+      password: password_body,
+    })
+    .then(() => {
+      console.log("user added");
+      return res.redirect("http://localhost:3000");
+    })
+    .catch((err) => {
+      console.log(err);
+    });
 });
 
 // DELETE: Delete movie by movieId from the database
@@ -87,4 +90,6 @@ app.post('/addUser', (req, res) => {
 
 const port = process.env.PORT || 5000;
 
-app.listen(port, () => console.log(`Server running on port ${port}, http://localhost:${port}`));
+app.listen(port, () =>
+  console.log(`Server running on port ${port}, http://localhost:${port}`)
+);
