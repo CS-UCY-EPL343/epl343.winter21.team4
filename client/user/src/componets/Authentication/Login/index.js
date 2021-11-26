@@ -15,6 +15,7 @@ import {
   formState,
   form,
   Link,
+  FormControl,
 } from "@chakra-ui/react";
 import { FaCar } from "react-icons/fa";
 import {
@@ -57,17 +58,35 @@ export default function LogIn(url) {
       </Heading>
 
       {/* Form for login authentication */}
-      <form method="GET" action="http://localhost:5000/authUser">
-        <Stack width={formsize} alignSelf="center">
-          <Input variant="filed" placeholder="Email" name="email_login" />
 
-          <Password />
+      <Stack width={formsize} alignSelf="center">
+        <form method="GET" action="http://localhost:5000/authUser">
+          <Input
+            variant="filed"
+            placeholder="Email"
+            name="email_login"
+            id="email_login"
+            type="email"
+          />
+
+          {/* <Password /> */}
+          <div>
+            <Stack alignSelf="center">
+              <Input
+                variant="filed"
+                type="password"
+                placeholder="Enter Password"
+                name="password_login"
+                id="password_login"
+              />
+            </Stack>
+          </div>
           <Button width="full" type="submit">
             LOG IN
           </Button>
           {/* <Link as={RouterLink} to="/user/home"></Link> */}
-        </Stack>
-      </form>
+        </form>
+      </Stack>
     </Stack>
   );
 }

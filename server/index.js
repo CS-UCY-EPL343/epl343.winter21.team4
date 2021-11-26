@@ -37,11 +37,12 @@ app.get("/view", (req, res) => {
 
 //Authentication of a user with the database
 app.get("/authUser", (req, res) => {
-  const { email_login, password_login } = req.body;
   db.select("email","password")
     .from("users")
-    .where('email', '=' , email_login, 'AND', 'password', '=', password_login)
+    .where('email', '=' , req.body.email_login)
+    .andWhere('password', '=',req.body.password_login )
     .then((data) => {
+      console.log(req.body.email_login, "  ", req.body.password_login);
       console.log(data);
       return res.redirect("http://localhost:3000/user/home");
     })
@@ -66,6 +67,7 @@ app.post("/addUser", (req, res) => {
       password: password_body,
     })
     .then(() => {
+      console.log(id_body);
       console.log("user added");
       return res.redirect("http://localhost:3000");
     })
