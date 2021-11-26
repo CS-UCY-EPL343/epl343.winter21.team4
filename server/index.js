@@ -35,6 +35,23 @@ app.get("/view", (req, res) => {
     });
 });
 
+//Authentication of a user with the database
+app.get("/authUser", (req, res) => {
+  const { email_login, password_login } = req.body;
+  db.select("email","password")
+    .from("users")
+    .where('email', '=' , email_login, 'AND', 'password', '=', password_login)
+    .then((data) => {
+      console.log(data);
+      return res.redirect("http://localhost:3000/user/home");
+    })
+    .catch((err) => {
+      console.log(err);
+    });
+});
+
+
+
 // POST: Create movies and add them to the database
 app.post("/addUser", (req, res) => {
   const { id_body, created_body, firstname_body, email_body,lastname_body,phone_body,password_body } = req.body;
