@@ -45,7 +45,9 @@ export default function Search(url) {
       <Stack paddingTop="5">
         <Stack alignContent="center">
           <NumberInput
-            width="70%"
+            width="60%"
+            flexGrow={0}
+            flexShrink={0}
             onChange={(valueString) => setValue(valueString)}
             value={value}
             max={9999}
@@ -54,9 +56,11 @@ export default function Search(url) {
             inputMode="numeric"
             onKeyDown={(e) => symbolsArr.includes(e.key) && e.preventDefault()}
             alignSelf="center"
+            
           >
             <NumberInputField
               backgroundColor="#11DABF"
+              textAlign="center"
               placeholder="#"
               maxLength="4"
               id="searchBox"
@@ -65,8 +69,8 @@ export default function Search(url) {
               fontWeight="extrabold"
             ></NumberInputField>
           </NumberInput>
-
-          <Stack overflowY="auto" height="550" flexShrink={0}>
+          <Flex h="100vh">
+          <Stack overflowY="auto" flexShrink={0} flex={1} paddingBottom="5" height="75%">
             {Data.filter((parking) => {
               if (value === "") {
                 return null;
@@ -76,10 +80,11 @@ export default function Search(url) {
             }).map((parking, index) => (
               <div key={index}>
                 <Link as={NavLink} to={`${pathname}/${parking.id}`}>
-                  <HStack paddingTop="5">
-                    <Image src={parking.picture} borderRadius="15" />
+                  <HStack padding="5">
+                    <Image src={parking.picture} borderRadius="15" width="150px"/>
                     <Stack>
-                      <Text alignSelf="baseline">
+                      <Text textAlign="right" fontWeight="bold">#{parking.id}</Text>
+                      <Text alignSelf="baseline" fontSize="xl" color="green">
                         {parking.parkingName}
                         {<br />}
                         {parking.address} {parking.addressNumber}
@@ -87,13 +92,14 @@ export default function Search(url) {
                         {parking.city}, {parking.postCode}
                         {<br />}
                       </Text>
-                      <Text align="right">Price: €{parking.price}</Text>
+                      <Text align="right" fontWeight="extrabold" color="darkblue">Price: €{parking.price}</Text>
                     </Stack>
                   </HStack>
                 </Link>
               </div>
             ))}
           </Stack>
+          </Flex>
         </Stack>
       </Stack>
     </Stack>
