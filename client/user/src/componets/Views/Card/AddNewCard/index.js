@@ -30,7 +30,14 @@ import {
           <Stack width="-webkit-fill-available">
           <Heading paddingTop="10" alignSelf="center">Card Details</Heading>
           <Stack width="min-content" alignSelf="center">
-           
+           <Button as={RouterLink} to="/card" backgroundColor="gray.300" borderRadius="15" width="full" textAlign="center">
+            <HStack >
+              <FaPlus/>
+              <Text>
+                ADD CARD
+              </Text>
+            </HStack>
+          </Button>
           </Stack>
           </Stack>
     );

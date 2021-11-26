@@ -109,22 +109,25 @@ export default function ParkingProfiles(url) {
                   ""
                 )}
               </List>
-              <Flex paddingTop="150" width="100%">
-                <Link as={NavLink} to={`${pathname}/paynow`} alignSelf="center">
+              <Link  as={NavLink} to={`${pathname}/paynow`} >
+              <Flex  width="100%" alignContent="center">
+                
                   <Button
                     bgColor="#16DABF"
                     size="md"
                     width="100%"
                     alignSelf="center"
                     textColor="white"
+                   
                   >
                     <HStack>
                       <FaPlus />
                       <Text>PAY NOW</Text>
                     </HStack>
                   </Button>
-                </Link>
+                  
               </Flex>
+              </Link>
             </Stack>
           </Stack>
         </div>
