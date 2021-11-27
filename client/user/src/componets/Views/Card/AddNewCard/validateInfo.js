@@ -8,8 +8,6 @@ export default function validateInfo(values) {
   creditCard.cardholderName = valid.cardholderName(values.name);
   creditCard.cvv = valid.cvv(values.cvc);
 
-  console.log(creditCard);
-
   errors.show = true;
   errors.variant = "danger";
   errors.message = "An unknown error occured, please try again later";
