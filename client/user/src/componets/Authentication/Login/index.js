@@ -28,6 +28,9 @@ import LandingPage from "../../LandingPage";
 import Password from "../Password";
 import { isMobile } from "react-device-detect";
 import * as rdd from "react-device-detect";
+// import { setUserSession } from "../../../utils/common";
+// import axios from 'axios';
+// import React, { useState } from 'react';
 
 export default function LogIn(url) {
   let formsize = 0;
@@ -60,7 +63,7 @@ export default function LogIn(url) {
       {/* Form for login authentication */}
 
       <Stack width={formsize} alignSelf="center">
-        <form method="POST" action="http://localhost:5000/authUser">
+        <form method="POST" action="http://localhost:5000/login">
           {/* <form> */}
           <Input
             variant="filed"
@@ -85,7 +88,7 @@ export default function LogIn(url) {
           <Button width="full" type="submit">
             LOG IN
           </Button>
-          <Link as={RouterLink} to="/user/home"></Link>
+          {/* <Link as={RouterLink} to="/user/home"></Link> */}
         </form>
       </Stack>
     </Stack>
