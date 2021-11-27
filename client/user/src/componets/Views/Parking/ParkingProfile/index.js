@@ -61,12 +61,15 @@ export default function ParkingProfiles(url) {
           <Stack width="-webkit-fill-available">
             <Image
               alignSelf="center"
-              boxSize="350"
+              maxwidth="100%"
               src={parking.picture}
               borderRadius="15"
+              p={1}
+              maxBlockSize="350"
+              
             />
             <HStack alignSelf="center">
-              <FaParking size="50" />
+              <FaParking size="30" />
               <Heading alignSelf="center">{parking.parkingName}</Heading>
             </HStack>
             <Stack alignSelf="center" alignItems="center">

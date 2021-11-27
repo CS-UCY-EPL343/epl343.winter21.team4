@@ -31,11 +31,22 @@ import {
 } from "react-router-dom";
 import { useState } from "react";
 import Data from "./MOCK_DATA.json";
-import {FaHashtag} from "react-icons/fa"
+import {AiOutlineLine} from "react-icons/ai";
+import {isMobile} from 'react-device-detect';
+import * as rdd from 'react-device-detect';
+
 export default function Search(url) {
   const [symbolsArr] = useState(["e", "E", "+", "-", "."]);
   const [value, setValue] = React.useState("");
   const { pathname } = useLocation();
+
+  let parkingdescriptionsize=0;
+  //rdd.isMobile=true;
+  if(isMobile){
+    parkingdescriptionsize="md"
+  }else{
+    parkingdescriptionsize="xl"
+  }
 
   return (
     <Stack width="-webkit-fill-available" align="center">
@@ -43,7 +54,7 @@ export default function Search(url) {
         Search For Parking
       </Heading>
       <Stack paddingTop="5">
-        <Stack alignContent="center">
+        <Stack alignContent="center"  >
           <NumberInput
             width="60%"
             flexGrow={0}
@@ -79,12 +90,13 @@ export default function Search(url) {
               }
             }).map((parking, index) => (
               <div key={index}>
+                <Box backgroundColor="gray.200" borderRadius="15">
                 <Link as={NavLink} to={`${pathname}/${parking.id}`}>
-                  <HStack padding="5">
+                  <HStack padding="1">
                     <Image src={parking.picture} borderRadius="15" width="150px"/>
                     <Stack>
-                      <Text textAlign="right" fontWeight="bold">#{parking.id}</Text>
-                      <Text alignSelf="baseline" fontSize="xl" color="green">
+                      <Text textAlign="right"  fontWeight="bold">#{parking.id}</Text>
+                      <Text alignSelf="baseline" fontSize={parkingdescriptionsize} color="green">
                         {parking.parkingName}
                         {<br />}
                         {parking.address} {parking.addressNumber}
@@ -96,6 +108,7 @@ export default function Search(url) {
                     </Stack>
                   </HStack>
                 </Link>
+                </Box>
               </div>
             ))}
           </Stack>
