@@ -90,6 +90,7 @@ export default function Search(url) {
               }
             }).map((parking, index) => (
               <div key={index}>
+                <Box backgroundColor="gray.200" borderRadius="15">
                 <Link as={NavLink} to={`${pathname}/${parking.id}`}>
                   <HStack padding="1">
                     <Image src={parking.picture} borderRadius="15" width="150px"/>
@@ -106,8 +107,8 @@ export default function Search(url) {
                       <Text align="right" fontWeight="extrabold" color="darkblue">Price: €{parking.price}</Text>
                     </Stack>
                   </HStack>
-                 <hr style={{backgroundColor:'gray', height:'10px'}} />
                 </Link>
+                </Box>
               </div>
             ))}
           </Stack>
