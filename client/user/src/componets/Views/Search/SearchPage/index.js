@@ -31,21 +31,21 @@ import {
 } from "react-router-dom";
 import { useState } from "react";
 import Data from "./MOCK_DATA.json";
-import {AiOutlineLine} from "react-icons/ai";
-import {isMobile} from 'react-device-detect';
-import * as rdd from 'react-device-detect';
+import { AiOutlineLine } from "react-icons/ai";
+import { isMobile } from "react-device-detect";
+import * as rdd from "react-device-detect";
 
 export default function Search(url) {
   const [symbolsArr] = useState(["e", "E", "+", "-", "."]);
   const [value, setValue] = React.useState("");
   const { pathname } = useLocation();
 
-  let parkingdescriptionsize=0;
+  let parkingdescriptionsize = 0;
   //rdd.isMobile=true;
-  if(isMobile){
-    parkingdescriptionsize="md"
-  }else{
-    parkingdescriptionsize="xl"
+  if (isMobile) {
+    parkingdescriptionsize = "md";
+  } else {
+    parkingdescriptionsize = "xl";
   }
 
   return (
@@ -54,9 +54,9 @@ export default function Search(url) {
         Search For Parking
       </Heading>
       <Stack paddingTop="5">
-        <Stack alignContent="center"  >
+        <Stack alignContent="center">
           <NumberInput
-            width="60%"
+            width="125px"
             flexGrow={0}
             flexShrink={0}
             onChange={(valueString) => setValue(valueString)}
@@ -67,51 +67,79 @@ export default function Search(url) {
             inputMode="numeric"
             onKeyDown={(e) => symbolsArr.includes(e.key) && e.preventDefault()}
             alignSelf="center"
-            
+            focusBorderColor="#16DABF"
           >
             <NumberInputField
-              backgroundColor="#11DABF"
-              textAlign="center"
-              placeholder="#"
+              width="125px"
+              backgroundColor="gray.300"
+              textAlign="left"
+              placeholder="Parking #"
               maxLength="4"
               id="searchBox"
               name="box"
-              textColor="blacks"
+              textColor="black"
               fontWeight="extrabold"
             ></NumberInputField>
           </NumberInput>
           <Flex h="100vh">
-          <Stack overflowY="auto" flexShrink={0} flex={1} paddingBottom="5" height="75%">
-            {Data.filter((parking) => {
-              if (value === "") {
-                return null;
-              } else if (parking.id.match(value)) {
-                return parking;
-              }
-            }).map((parking, index) => (
-              <div key={index}>
-                <Box backgroundColor="gray.200" borderRadius="15">
-                <Link as={NavLink} to={`${pathname}/${parking.id}`}>
-                  <HStack padding="1">
-                    <Image src={parking.picture} borderRadius="15" width="150px"/>
-                    <Stack>
-                      <Text textAlign="right"  fontWeight="bold">#{parking.id}</Text>
-                      <Text alignSelf="baseline" fontSize={parkingdescriptionsize} color="green">
-                        {parking.parkingName}
-                        {<br />}
-                        {parking.address} {parking.addressNumber}
-                        {<br />}
-                        {parking.city}, {parking.postCode}
-                        {<br />}
-                      </Text>
-                      <Text align="right" fontWeight="extrabold" color="darkblue">Price: €{parking.price}</Text>
-                    </Stack>
-                  </HStack>
-                </Link>
-                </Box>
-              </div>
-            ))}
-          </Stack>
+            <Stack
+              overflowY="auto"
+              flexShrink={0}
+              flex={1}
+              paddingBottom="5"
+              height="75%"
+            >
+              {Data.filter((parking) => {
+                if (value === "") {
+                  return null;
+                } else if (parking.id.match(value)) {
+                  return parking;
+                }
+              }).map((parking, index) => (
+                <div key={index}>
+                  <Box backgroundColor="gray.200" borderRadius="15">
+                    <Link as={NavLink} to={`${pathname}/${parking.id}`}>
+                      <HStack padding="1">
+                        <Image
+                          src={parking.picture}
+                          borderRadius="15"
+                          width="150px"
+                        />
+                        <Stack>
+                          <Text
+                            textAlign="right"
+                            fontWeight="extrabold"
+                            color="#DA1631"
+                          >
+                            #{parking.id}
+                          </Text>
+                          <Text
+                            alignSelf="baseline"
+                            fontSize={parkingdescriptionsize}
+                            color="gray.600"
+                          >
+                            {parking.parkingName}
+                            {<br />}
+                            {parking.address} {parking.addressNumber}
+                            {<br />}
+                            {parking.city}, {parking.postCode}
+                            {<br />}
+                          </Text>
+                          <Text
+                            align="right"
+                            fontWeight="bold"
+                            color="black"
+                            fontStyle="oblique"
+                          >
+                            Price: €{parking.price}
+                          </Text>
+                        </Stack>
+                      </HStack>
+                    </Link>
+                  </Box>
+                </div>
+              ))}
+            </Stack>
           </Flex>
         </Stack>
       </Stack>
