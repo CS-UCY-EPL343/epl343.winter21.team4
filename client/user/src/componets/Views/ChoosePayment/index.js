@@ -80,12 +80,12 @@ export default function ChoosePaymentMethod({ url }) {
               €3.00
             </Text>
           </HStack>
-          <hr style={{ backgroundColor: "gray", height: "1px" }} />
+          <hr style={{ backgroundColor: "black", height: "2px" }} />
           <HStack alignSelf="center">
-            <Text color="black" size="lg" textAlign="left">
+            <Text color="black" size="lg" textAlign="left" fontWeight="bold">
               TOTAL DUE:
             </Text>
-            <Text color="black" paddingLeft="75" size="lg">
+            <Text color="black" paddingLeft="75" size="lg" fontWeight="bold">
               €3.00
             </Text>
           </HStack>
@@ -104,7 +104,7 @@ export default function ChoosePaymentMethod({ url }) {
               textAlign="center"
               bgColor="#16DABF"
             >
-              <Text>PAY €3.00</Text>
+              <Text fontWeight="bold">PAY €3.00</Text>
             </Button>
           </Link>
         </Stack>
