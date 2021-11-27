@@ -22,7 +22,7 @@ app.use(express.json());
 // CORS implemented so that we don't get errors when trying to access the server from a different server location
 app.use(cors());
 
-// GET: Fetch all movies from the database
+// GET: Fetch all users from the database
 app.get("/view", (req, res) => {
   db.select("*")
     .from("users")
@@ -36,11 +36,11 @@ app.get("/view", (req, res) => {
 });
 
 //Authentication of a user with the database
-app.get("/authUser", (req, res) => {
-  db.select("email","password")
+app.post("/authUser", (req, res) => {
+  db.select("email", "password")
     .from("users")
-    .where('email', '=' , req.body.email_login)
-    .andWhere('password', '=',req.body.password_login )
+    .where("email", "=", req.body.email_login)
+    .andWhere("password", "=", req.body.password_login)
     .then((data) => {
       console.log(req.body.email_login, "  ", req.body.password_login);
       console.log(data);
@@ -51,11 +51,30 @@ app.get("/authUser", (req, res) => {
     });
 });
 
-
+app.post("/parking", (req, res) => {
+  db.select("*")
+    .from("parking")
+    .where("id", "=", req.body.parkID)
+    .then((data) => {
+      console.log(data);
+      // return res.redirect("http://localhost:3000/user/home");
+    })
+    .catch((err) => {
+      console.log(err);
+    });
+});
 
 // POST: Create movies and add them to the database
 app.post("/addUser", (req, res) => {
-  const { id_body, created_body, firstname_body, email_body,lastname_body,phone_body,password_body } = req.body;
+  const {
+    id_body,
+    created_body,
+    firstname_body,
+    email_body,
+    lastname_body,
+    phone_body,
+    password_body,
+  } = req.body;
   db("users")
     .insert({
       id: id_body,

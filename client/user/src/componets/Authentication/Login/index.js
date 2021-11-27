@@ -60,7 +60,8 @@ export default function LogIn(url) {
       {/* Form for login authentication */}
 
       <Stack width={formsize} alignSelf="center">
-        <form method="GET" action="http://localhost:5000/authUser">
+        <form method="POST" action="http://localhost:5000/authUser">
+          {/* <form> */}
           <Input
             variant="filed"
             placeholder="Email"
@@ -71,7 +72,7 @@ export default function LogIn(url) {
 
           {/* <Password /> */}
           <div>
-            <Stack alignSelf="center">
+            <Stack alignSelf="center" paddingTop="1rem" paddingBottom="1rem">
               <Input
                 variant="filed"
                 type="password"
@@ -84,7 +85,7 @@ export default function LogIn(url) {
           <Button width="full" type="submit">
             LOG IN
           </Button>
-          {/* <Link as={RouterLink} to="/user/home"></Link> */}
+          <Link as={RouterLink} to="/user/home"></Link>
         </form>
       </Stack>
     </Stack>

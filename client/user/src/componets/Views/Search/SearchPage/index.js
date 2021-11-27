@@ -31,7 +31,7 @@ import {
 } from "react-router-dom";
 import { useState } from "react";
 import Data from "./MOCK_DATA.json";
-import {FaHashtag} from "react-icons/fa"
+import { FaHashtag } from "react-icons/fa";
 export default function Search(url) {
   const [symbolsArr] = useState(["e", "E", "+", "-", "."]);
   const [value, setValue] = React.useState("");
@@ -44,27 +44,31 @@ export default function Search(url) {
       </Heading>
       <Stack paddingTop="5">
         <Stack alignContent="center">
-          <NumberInput
-            width="70%"
-            onChange={(valueString) => setValue(valueString)}
-            value={value}
-            max={9999}
-            clampValueOnBlur={false}
-            isRequired={true}
-            inputMode="numeric"
-            onKeyDown={(e) => symbolsArr.includes(e.key) && e.preventDefault()}
-            alignSelf="center"
-          >
-            <NumberInputField
-              backgroundColor="#11DABF"
-              placeholder="#"
-              maxLength="4"
-              id="searchBox"
-              name="box"
-              textColor="blacks"
-              fontWeight="extrabold"
-            ></NumberInputField>
-          </NumberInput>
+          <form method="POST" action="http://localhost:5000/parking">
+            <NumberInput
+              width="70%"
+              onChange={(valueString) => setValue(valueString)}
+              value={value}
+              max={9999}
+              clampValueOnBlur={false}
+              isRequired={true}
+              inputMode="numeric"
+              onKeyDown={(e) =>
+                symbolsArr.includes(e.key) && e.preventDefault()
+              }
+              alignSelf="center"
+            >
+              <NumberInputField
+                backgroundColor="#11DABF"
+                placeholder="#"
+                maxLength="4"
+                id="searchBox"
+                name="parkID"
+                textColor="blacks"
+                fontWeight="extrabold"
+              ></NumberInputField>
+            </NumberInput>
+          </form>
 
           <Stack overflowY="auto" height="550" flexShrink={0}>
             {Data.filter((parking) => {
