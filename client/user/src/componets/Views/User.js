@@ -1,4 +1,4 @@
-import { Box } from "@chakra-ui/react";
+import { Box,Text } from "@chakra-ui/react";
 import * as React from "react";
 import { BrowserRouter, Route, Switch } from "react-router-dom";
 import Login from "../Authentication/Login";
@@ -9,6 +9,7 @@ import Card from "./Card";
 import Info from "./Info";
 import LogIn from "../Authentication/Login";
 import Home from "./Home";
+import ThankYou from "./ThankYou"
 
 export default function User() {
   return (
@@ -30,6 +31,9 @@ export default function User() {
             </Route>
             <Route path="/info">
               <Info />
+            </Route>
+            <Route path="/thankyou">
+              <ThankYou/>
             </Route>
             {/* <Route path="*">
               <Search />

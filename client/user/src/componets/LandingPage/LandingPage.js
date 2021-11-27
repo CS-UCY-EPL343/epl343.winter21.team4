@@ -52,9 +52,6 @@ export default function LandingPageLayout({children}) {
       </Heading>
 
       <Image alignSelf="center" width={imagewidth} src={logo}  />
-      <Box alignSelf="center">
-        <FaCar alignItems="center" alignContent="center" size={facarsize} />
-      </Box>
       
 
       {children}

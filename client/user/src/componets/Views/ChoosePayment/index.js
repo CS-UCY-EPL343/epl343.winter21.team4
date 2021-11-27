@@ -92,7 +92,7 @@ export default function ChoosePaymentMethod({ url }) {
 
           <Link
             as={RouterLink}
-            to={`${url}/thankyou`}
+            to="/thankyou"
             alignSelf="center"
             width="100%"
           >

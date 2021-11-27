@@ -39,9 +39,7 @@ import {
             <Route path={path}>
               <ParkingProfiles/>
             </Route>
-            <Route path={`${url}/thankyou`}>
-              <Text>Thank you for your payment</Text>
-            </Route>
+           
           </Switch>
     );
   }

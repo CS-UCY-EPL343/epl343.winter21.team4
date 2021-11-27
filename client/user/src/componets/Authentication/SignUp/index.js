@@ -18,7 +18,7 @@ import * as rdd from 'react-device-detect';
 export default function SignUp() {
 
   let formsize=0;
-  rdd.isMobile=true;
+  //rdd.isMobile=true;
   if(isMobile){
     formsize="80%"
   }else{
