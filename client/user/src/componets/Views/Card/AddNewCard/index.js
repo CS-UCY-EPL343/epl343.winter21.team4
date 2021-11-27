@@ -1,102 +1,7 @@
-/*import Cards from "react-credit-cards";
-import useForn from "useForm";
-import {
-  Text,
-  Box,
-  Heading,
-  Button,
-  Stack,
-  Icon,
-  Input,
-  show,
-  handleClick,
-  InputRightElement,
-  Flex,
-  HiCheck,
-  HStack,
-  formState,
-  form,
-  Link,
-} from "@chakra-ui/react";
-import { Form, Alert, Row, Col } from "react-bootstrap";
-//import "bootstrap/dist/css/bootstrap.min.css";
-import { FaCar, FaCcMastercard, FaPlus, FaCcVisa } from "react-icons/fa";
-import {
-  BrowserRouter,
-  Route,
-  Switch,
-  Link as RouterLink,
-  NavLink,
-} from "react-router-dom";
-import "react-credit-cards/es/styles-compiled.css";
-import React, { useState } from "react";
-
-export default function AddNewCard({ url }) {
-  const [number, setNumber] = useState("");
-  const [name, setName] = useState("");
-  const [expiry, setExpiry] = useState("");
-  const [cvc, setCvc] = useState("");
-  const [focus, setFocus] = useState("");
-
-  return (
-    <Stack width="-webkit-fill-available">
-      <Heading paddingTop="10" alignSelf="center">
-        Add A New Card
-      </Heading>
-      <div>
-        <Cards
-          number={number}
-          name={name}
-          expiry={expiry}
-          cvc={cvc}
-          focused={focus}
-        />
-        <form>
-          <input
-            type="tel"
-            name="number"
-            placeholder="Card Number"
-            value={number}
-            onChange={(e) => setNumber(e.target.value)}
-            onFocus={(e) => setFocus(e.target.name)}
-          />
-          <input
-            type="text"
-            name="name"
-            placeholder="Name"
-            value={name}
-            onChange={(e) => setName(e.target.value)}
-            onFocus={(e) => setFocus(e.target.name)}
-          />
-          <Row>
-            <input
-              type="text"
-              name="expiry"
-              placeholder="MM/YY"
-              value={expiry}
-              onChange={(e) => setExpiry(e.target.value)}
-              onFocus={(e) => setFocus(e.target.name)}
-            />
-            <input
-              type="tel"
-              name="cvc"
-              placeholder="CVC"
-              value={cvc}
-              onChange={(e) => setCvc(e.target.value)}
-              onFocus={(e) => setFocus(e.target.name)}
-            />
-          </Row>
-        </form>
-      </div>
-      <Stack width="min-content" alignSelf="center"></Stack>
-    </Stack>
-  );
-}*/
-
 import React from "react";
 import useForm from "./useForm";
 import { Button, Form, Alert, Row, Col } from "react-bootstrap";
-//import "bootstrap/dist/css/bootstrap.min.css";
+import "bootstrap/dist/css/bootstrap.min.css";
 import "./CreditCardForm.css";
 import Cards from "react-credit-cards";
 import "react-credit-cards/es/styles-compiled.css";
@@ -110,22 +15,22 @@ const CreditCardForm = () => {
           <div className="formDiv">
             <div className="creditCard">
               <Cards
-                cvc={values.cardSecurityCode}
-                expiry={values.cardExpiration}
+                cvc={values.cvc}
+                expiry={values.expiration}
                 focused={values.focus}
-                name={values.cardName}
-                number={values.cardNumber}
+                name={values.name}
+                number={values.number}
               />
             </div>
             <Form onSubmit={handleSubmit}>
               <Form.Group>
                 <Form.Control
                   type="text"
-                  id="cardName"
-                  data-testid="cardName"
-                  name="cardName"
+                  id="name"
+                  data-testid="name"
+                  name="name"
                   placeholder="Cardholder Name"
-                  value={values.cardName}
+                  value={values.name}
                   onChange={handleChange}
                   onFocus={handleFocus}
                   isValid={errors.cname}
@@ -134,11 +39,11 @@ const CreditCardForm = () => {
               <Form.Group>
                 <Form.Control
                   type="number"
-                  id="cardNumber"
-                  data-testid="cardNumber"
-                  name="cardNumber"
+                  id="number"
+                  data-testid="number"
+                  name="number"
                   placeholder="Card Number"
-                  value={values.cardNumber}
+                  value={values.number}
                   onChange={handleChange}
                   onFocus={handleFocus}
                   isValid={errors.cnumber}
@@ -149,11 +54,11 @@ const CreditCardForm = () => {
                   <Form.Group>
                     <Form.Control
                       type="text"
-                      id="cardExpiration"
-                      data-testid="cardExpiration"
-                      name="cardExpiration"
+                      id="expiration"
+                      data-testid="expiration"
+                      name="expiration"
                       placeholder="Expiration Date"
-                      value={values.cardExpiration}
+                      value={values.expiration}
                       onChange={handleChange}
                       onFocus={handleFocus}
                       isValid={errors.cexp}
@@ -166,14 +71,14 @@ const CreditCardForm = () => {
                   <Form.Group>
                     <Form.Control
                       type="number"
-                      id="cardSecurityCode"
-                      data-testid="cardSecurityCode"
-                      name="cardSecurityCode"
+                      id="cvc"
+                      data-testid="cvc"
+                      name="cvc"
                       placeholder="CVC"
-                      value={values.cardSecurityCode}
+                      value={values.cvc}
                       onChange={handleChange}
                       onFocus={handleFocus}
-                      isValid={errors.ccvc}
+                      isValid={errors.ccvv}
                     />
                   </Form.Group>
                 </Col>

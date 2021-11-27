@@ -3,11 +3,10 @@ import validateInfo from "./validateInfo";
 
 const useForm = () => {
   const [values, setValues] = useState({
-    cardName: "",
-    cardNumber: "",
-    cardType: "",
-    cardExpiration: "",
-    cardSecurityCode: "",
+    name: "",
+    number: "",
+    expiration: "",
+    cvc: "",
     focus: "",
   });
 

@@ -3,9 +3,10 @@ import valid from "card-validator";
 export default function validateInfo(values) {
   let errors = {};
   let creditCard = valid.number(values.number);
+
   creditCard.expirationDate = valid.expirationDate(values.expiration);
   creditCard.cardholderName = valid.cardholderName(values.name);
-  creditCard.cvc = valid.cvc(values.ccvc);
+  creditCard.cvv = valid.cvv(values.cvc);
 
   console.log(creditCard);
 
@@ -15,13 +16,13 @@ export default function validateInfo(values) {
   errors.cname = false;
   errors.cnumber = false;
   errors.cexp = false;
-  errors.ccvc = false;
+  errors.ccvv = false;
 
   //Card CVC Error Messages and checks
   if (values.cvc === null || !values.cvc.trim()) {
     errors.message = "Credit Card CVC is not complete";
-  } else if (creditCard.cvc.isValid) {
-    errors.ccvc = true;
+  } else if (creditCard.cvv.isValid) {
+    errors.ccvv = true;
   } else {
     errors.message = "Credit Card CVC is invalid";
   }
@@ -38,7 +39,7 @@ export default function validateInfo(values) {
   //Card Number Error Messages and checks
   if (values.number === null || !values.number.trim()) {
     errors.message = "Credit Card Number is not complete";
-  } else if (creditCard.number.isValid) {
+  } else if (creditCard.isValid) {
     errors.cnumber = true;
   } else {
     errors.message = "Credit Card Number is invalid";
@@ -47,13 +48,13 @@ export default function validateInfo(values) {
   //Card Name Error Messages and checks
   if (values.name === null || !values.name.trim()) {
     errors.message = "Credit Card Name is not complete";
-  } else if (creditCard.name.isValid) {
+  } else if (creditCard.cardholderName.isValid) {
     errors.cname = true;
   } else {
     errors.message = "Credit Card Name is invalid";
   }
 
-  if (errors.cname && errors.cnumber && errors.ccvc && errors.cexp) {
+  if (errors.cname && errors.cnumber && errors.ccvv && errors.cexp) {
     errors.variant = "Success!";
     errors.message = "Credit Card is Valid!";
   }
