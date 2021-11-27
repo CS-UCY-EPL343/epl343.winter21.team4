@@ -42,9 +42,11 @@ app.post("/authUser", (req, res) => {
     .where("email", "=", req.body.email_login)
     .andWhere("password", "=", req.body.password_login)
     .then((data) => {
-      console.log(req.body.email_login, "  ", req.body.password_login);
-      console.log(data);
-      return res.redirect("http://localhost:3000/user/home");
+      
+        console.log(req.body.email_login, "  ", req.body.password_login);
+        console.log(data);
+        return res.redirect("http://localhost:3000/user/home");
+      
     })
     .catch((err) => {
       console.log(err);
