@@ -5,6 +5,9 @@ require("dotenv").config();
 const bodyParser = require("body-parser");
 const bcrypt = require("bcrypt");
 
+const jwt = require("jsonwebtoken");
+const SECRET = "parkpickForLife";
+
 const db = knex({
   client: "pg",
   connection: {
@@ -21,7 +24,6 @@ const app = express();
 app.use(express.urlencoded({ extended: false }));
 app.use(express.json());
 app.use(bodyParser.json());
-
 // CORS implemented so that we don't get errors when trying to access the server from a different server location
 app.use(cors());
 
@@ -53,25 +55,6 @@ app.post("/authUser", (req, res) => {
       console.log(err);
     });
 });
-
-// app.post("/login", (req, res) => {
-//   db.select("email", "password")
-//     .from("users")
-//     .where("email", "=", req.body.email_login)
-//     .andWhere("password", "=", req.body.password_login)
-//     .then((data) => {
-//       console.log(req.body.email_login);
-//       console.log(data)
-//       if (!data) {
-//         response.status(401).json({
-//           error: "Unauthorized",
-//         });
-//       } else {
-//         console.log("hi from redirect");
-//         return res.redirect("http://localhost:3000/user/home");
-//       }
-//     });
-// });
 
 app.post("/parking", (req, res) => {
   db.select("*")
@@ -116,36 +99,34 @@ app.post("/addUser", (req, response) => {
   });
 });
 
-// DELETE: Delete movie by movieId from the database
-// app.delete('/delete-movie', (req, res) => {
-//     const movieId = req.body;
-//     const movieIdToDelete = Number(movieId.movieId);
-//     console.log(movieIdToDelete);
-//     db('movies')
-//         .where('movie_id', '=', movieIdToDelete)
-//         .del()
-//         .then(() => {
-//             console.log('Movie Deleted');
-//             return res.json({ msg: 'Movie Deleted' });
-//         })
-//         .catch((err) => {
-//             console.log(err);
-//         });
-// });
+app.post("/login", (request, response, next) => {
+  db.from("users")
+    .where({ email: request.body.email_login })
+    .first()
+    .then((user) => {
+      if (!user) {
+        response.status(401).json({
+          error: "No user by that name",
+        });
+      } else {
+        return bcrypt
+          .compare(request.body.password_login, user.password)
+          .then((isAuthenticated) => {
+            if (!isAuthenticated) {
+              response.status(401).json({
+                error: "Unauthorized Access!",
+              });
+            } else {
+              // return jwt.sign(user, SECRET, (error, token) => {
+              //   response.status(200).json({ token });
+              // });
 
-// PUT: Update movie by movieId from the database
-// app.put('/update-movie', (req, res) => {
-//     db('movies')
-//         .where('movie_id', '=', 1)
-//         .update({ movie_name: 'Goldeneye' })
-//         .then(() => {
-//             console.log('Movie Updated');
-//             return res.json({ msg: 'Movie Updated' });
-//         })
-//         .catch((err) => {
-//             console.log(err);
-//         });
-// });
+              return response.redirect("http://localhost:3000/user/home");
+            }
+          });
+      }
+    });
+});
 
 const port = process.env.PORT || 5000;
 
