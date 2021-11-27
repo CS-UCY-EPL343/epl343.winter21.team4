@@ -22,7 +22,7 @@ export default function Home(url) {
   let imagesize = 0;
   let fontofcaption = 0;
   let padding = 0;
-  rdd.isMobile = false;
+  rdd.isMobile = true;
   if (isMobile) {
     padding = "5"
     imagesize = "100"
