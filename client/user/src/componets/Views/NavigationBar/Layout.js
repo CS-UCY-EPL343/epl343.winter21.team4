@@ -187,11 +187,7 @@ export default function Layout({ children }) {
               </HStack>
             </Link>
 
-            <Link
-              as={RouterLink}
-              to="/login"
-              style={{ textDecoration: "none" }}
-            >
+            <Link as={RouterLink} to="/" style={{ textDecoration: "none" }}>
               <HStack
                 align="center"
                 px={4}
@@ -216,7 +212,9 @@ export default function Layout({ children }) {
                 <Text
                   display={{ base: "none", lg: "block" }}
                   color="white"
-                  onClick={(event) => (window.location.href = "/")}
+                  onClick={(event) =>
+                    window.location.assign("http://localhost:3000/")
+                  }
                 >
                   Log Out
                 </Text>
