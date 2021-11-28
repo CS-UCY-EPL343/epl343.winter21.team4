@@ -213,7 +213,7 @@ export default function Layout({ children }) {
                   display={{ base: "none", lg: "block" }}
                   color="white"
                   onClick={(event) =>
-                    window.location.assign("http://localhost:3000/")
+                    window.location.replace("http://localhost:3000/")
                   }
                 >
                   Log Out
