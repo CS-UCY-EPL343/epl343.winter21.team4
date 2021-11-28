@@ -186,42 +186,35 @@ export default function Layout({ children }) {
                 </Text>
               </HStack>
             </Link>
-
-            <Link
-              as={RouterLink}
-              to="/login"
-              style={{ textDecoration: "none" }}
+            <HStack
+              align="center"
+              px={4}
+              py={3}
+              fontWeight="medium"
+              fontSize="sm"
+              textColor="red"
+              lineHeight={5}
+              spacing={2}
+              activeStyle={{
+                color: "gray.300",
+              }}
+              _hover={{ bg: "gray.300" }}
             >
-              <HStack
-                align="center"
-                px={4}
-                py={3}
-                fontWeight="medium"
-                fontSize="sm"
-                textColor="red"
-                lineHeight={5}
-                spacing={2}
-                activeStyle={{
-                  color: "gray.300",
-                }}
-                _hover={{ bg: "gray.300" }}
-              >
-                <Icon
-                  as={MdOutlineLogout}
-                  w={{ base: 8, lg: 6 }}
-                  h={{ base: 8, lg: 6 }}
-                  color="white"
-                />
+              <Icon
+                as={MdOutlineLogout}
+                w={{ base: 8, lg: 6 }}
+                h={{ base: 8, lg: 6 }}
+                color="white"
+              />
 
-                <Text
-                  display={{ base: "none", lg: "block" }}
-                  color="white"
-                  onClick={(event) => (window.location.href = "/")}
-                >
-                  Log Out
-                </Text>
-              </HStack>
-            </Link>
+              <Text
+                display={{ base: "none", lg: "block" }}
+                color="white"
+                onClick={(event) => (window.location.href = "/")}
+              >
+                Log Out
+              </Text>
+            </HStack>
           </Stack>
         </Stack>
       </Flex>
