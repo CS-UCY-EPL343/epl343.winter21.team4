@@ -15,6 +15,7 @@ import {
   formState,
   form,
   Link,
+  FormControl,
 } from "@chakra-ui/react";
 import { FaCar } from "react-icons/fa";
 import {
@@ -25,17 +26,19 @@ import {
 } from "react-router-dom";
 import LandingPage from "../../LandingPage";
 import Password from "../Password";
-import {isMobile} from 'react-device-detect';
-import * as rdd from 'react-device-detect';
+import { isMobile } from "react-device-detect";
+import * as rdd from "react-device-detect";
+// import { setUserSession } from "../../../utils/common";
+// import axios from 'axios';
+// import React, { useState } from 'react';
 
 export default function LogIn(url) {
-
-  let formsize=0;
+  let formsize = 0;
   //rdd.isMobile=true;
-  if(isMobile){
-    formsize="80%"
-  }else{
-    formsize="20%"
+  if (isMobile) {
+    formsize = "80%";
+  } else {
+    formsize = "20%";
   }
 
   return (
@@ -46,28 +49,48 @@ export default function LogIn(url) {
       minH="full"
       bg="#16DABF"
     >
-        
+      <Heading
+        mt={6}
+        textAlign="center"
+        fontSize="xl"
+        fontWeight="extrabold"
+        color="black"
+        paddingBottom="5"
+      >
+        <Text>Log In to your account</Text>
+      </Heading>
 
-          <Heading
-            mt={6}
-            textAlign="center"
-            fontSize="xl"
-            fontWeight="extrabold"
-            color="black"
-            paddingBottom="5"
-          >
-            <Text>Log In to your account</Text>
-          </Heading>
+      {/* Form for login authentication */}
 
-          <Stack width={formsize} alignSelf="center">
-            <Input variant="filed" placeholder="Email" />
+      <Stack width={formsize} alignSelf="center">
+        <form method="POST" action="http://localhost:5000/login">
+          {/* <form> */}
+          <Input
+            variant="filed"
+            placeholder="Email"
+            name="email_login"
+            id="email_login"
+            type="email"
+          />
 
-            <Password />
-
-            <Link as={RouterLink} to="/user/home">
-              <Button width="full">LOG IN</Button>
-            </Link>
-          </Stack>
-        </Stack>
+          {/* <Password /> */}
+          <div>
+            <Stack alignSelf="center" paddingTop="1rem" paddingBottom="1rem">
+              <Input
+                variant="filed"
+                type="password"
+                placeholder="Enter Password"
+                name="password_login"
+                id="password_login"
+              />
+            </Stack>
+          </div>
+          <Button width="full" type="submit">
+            LOG IN
+          </Button>
+          {/* <Link as={RouterLink} to="/user/home"></Link> */}
+        </form>
+      </Stack>
+    </Stack>
   );
 }

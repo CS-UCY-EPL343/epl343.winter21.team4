@@ -34,6 +34,8 @@ import Data from "./MOCK_DATA.json";
 import { AiOutlineLine } from "react-icons/ai";
 import { isMobile } from "react-device-detect";
 import * as rdd from "react-device-detect";
+import { FaHashtag } from "react-icons/fa";
+
 
 export default function Search(url) {
   const [symbolsArr] = useState(["e", "E", "+", "-", "."]);
