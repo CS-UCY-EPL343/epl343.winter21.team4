@@ -36,6 +36,7 @@ import { isMobile } from "react-device-detect";
 import * as rdd from "react-device-detect";
 import { FaHashtag } from "react-icons/fa";
 
+
 export default function Search(url) {
   const [symbolsArr] = useState(["e", "E", "+", "-", "."]);
   const [value, setValue] = React.useState("");
