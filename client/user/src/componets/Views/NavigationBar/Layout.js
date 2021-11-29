@@ -23,7 +23,7 @@ import { FaUserCog } from "react-icons/fa";
 import { FaCar, FaInfoCircle } from "react-icons/fa";
 import { BsFillCreditCardFill } from "react-icons/bs";
 import { MdOutlineLogout } from "react-icons/md";
-import logo from "./../../Logos/logo_no_caption.svg";
+import logo from "./../../Logos/logo_icon.svg";
 
 export default function Layout({ children }) {
   return (
@@ -213,7 +213,7 @@ export default function Layout({ children }) {
                   display={{ base: "none", lg: "block" }}
                   color="white"
                   onClick={(event) =>
-                    window.location.replace("http://localhost:3000/")
+                    window.location.replace("http://www.parkpick.net")
                   }
                 >
                   Log Out
