@@ -61,12 +61,15 @@ export default function ParkingProfiles(url) {
           <Stack width="-webkit-fill-available">
             <Image
               alignSelf="center"
-              boxSize="350"
+              maxwidth="100%"
               src={parking.picture}
               borderRadius="15"
+              p={1}
+              maxBlockSize="350"
+              
             />
             <HStack alignSelf="center">
-              <FaParking size="50" />
+              <FaParking size="30" />
               <Heading alignSelf="center">{parking.parkingName}</Heading>
             </HStack>
             <Stack alignSelf="center" alignItems="center">
@@ -109,22 +112,25 @@ export default function ParkingProfiles(url) {
                   ""
                 )}
               </List>
-              <Flex paddingTop="150" width="100%">
-                <Link as={NavLink} to={`${pathname}/paynow`} alignSelf="center">
+              <Link  as={NavLink} to={`${pathname}/paynow`} >
+              <Flex  width="100%" alignContent="center">
+                
                   <Button
                     bgColor="#16DABF"
                     size="md"
                     width="100%"
                     alignSelf="center"
                     textColor="white"
+                   
                   >
                     <HStack>
                       <FaPlus />
                       <Text>PAY NOW</Text>
                     </HStack>
                   </Button>
-                </Link>
+                  
               </Flex>
+              </Link>
             </Stack>
           </Stack>
         </div>

@@ -25,8 +25,19 @@ import {
 } from "react-router-dom";
 import LandingPage from "../../LandingPage";
 import Password from "../Password";
+import {isMobile} from 'react-device-detect';
+import * as rdd from 'react-device-detect';
 
-export default function LogIn() {
+export default function LogIn(url) {
+
+  let formsize=0;
+  //rdd.isMobile=true;
+  if(isMobile){
+    formsize="80%"
+  }else{
+    formsize="20%"
+  }
+
   return (
     <Stack
       direction="column"
@@ -35,36 +46,7 @@ export default function LogIn() {
       minH="full"
       bg="#16DABF"
     >
-        <Heading
-          mt={6}
-          textAlign="center"
-          fontSize="7xl"
-          fontWeight="extrabold"
-          color="black"
-        >
-          <Text>ParkPick</Text>
-        </Heading>
-        <Stack
-          bgColor="#16DABF"
-          alignContent="center"
-          textAlign="centre"
-          display="flex"
-          flexDirection="column"
-          boxSize="3xl"
-          blockSize="full"
-          width="full"
-          height="full"
-          minHeight="full"
-          minWidth="full"
-        >
-          <Box alignSelf="center">
-            <Icon
-              alignItems="center"
-              as={FaCar}
-              boxSize="3xs"
-              alignContent="center"
-            />
-          </Box>
+        
 
           <Heading
             mt={6}
@@ -77,7 +59,7 @@ export default function LogIn() {
             <Text>Log In to your account</Text>
           </Heading>
 
-          <Stack width="52" alignSelf="center">
+          <Stack width={formsize} alignSelf="center">
             <Input variant="filed" placeholder="Email" />
 
             <Password />
@@ -87,6 +69,5 @@ export default function LogIn() {
             </Link>
           </Stack>
         </Stack>
-    </Stack>
   );
 }

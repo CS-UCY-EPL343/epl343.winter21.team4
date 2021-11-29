@@ -6,13 +6,24 @@ import {
   Stack,
   Icon,
   Input,
+  Link,
+  HStack,
 } from "@chakra-ui/react";
 import { FaCar } from "react-icons/fa";
 import fs from 'fs';
+import { Link as RouterLink } from "react-router-dom";
+import {isMobile} from 'react-device-detect';
+import * as rdd from 'react-device-detect';
+
 export default function SignUp() {
 
-  fs.writeFileSync('/kokos.json','KOkos')
-
+  let formsize=0;
+  //rdd.isMobile=true;
+  if(isMobile){
+    formsize="80%"
+  }else{
+    formsize="20%"
+  }
   return (
     
     <Stack
@@ -28,14 +39,7 @@ export default function SignUp() {
       minHeight="full"
       minWidth="full"
     >
-      <Box alignSelf="center">
-        <Icon
-          alignItems="center"
-          as={FaCar}
-          boxSize="3xs"
-          alignContent="center"
-        />
-      </Box>
+
 
       <Heading
         mt={6}
@@ -48,14 +52,16 @@ export default function SignUp() {
         <Text>Create a new account</Text>
       </Heading>
 
-      <Stack spacing={3} alignSelf="center">
-        <Input
-          size="md"
-          variant="filled"
-          placeholder="First Name"
-          type="text"
-        />
-        <Input size="md" variant="filled" placeholder="Last Name" type="text" />
+      <Stack spacing={3} alignSelf="center" width={formsize}>
+        <HStack>
+          <Input
+            size="md"
+            variant="filled"
+            placeholder="First Name"
+            type="text"
+          />
+          <Input size="md" variant="filled" placeholder="Last Name" type="text" />
+        </HStack>
         <Input size="md" variant="filled" placeholder="Email" type="email" />
         <Input
           size="md"
@@ -70,6 +76,9 @@ export default function SignUp() {
           placeholder="Repeat Password"
           type="password"
         />
+        <Link as={RouterLink} to="/login">
+          <Button width="full">SIGN UP</Button>
+        </Link>
       </Stack>
     </Stack>
   );
