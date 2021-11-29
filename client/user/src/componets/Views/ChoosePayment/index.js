@@ -26,6 +26,7 @@ import {
   NavLink,
   useLocation,
 } from "react-router-dom";
+import CardData from "../Card/CardList/MOCK_DATA.json";
 
 export default function ChoosePaymentMethod({ url }) {
   const { pathname } = useLocation();
@@ -36,40 +37,38 @@ export default function ChoosePaymentMethod({ url }) {
           Choose Payment Method
         </Heading>
         <Stack width="min-content" alignSelf="center">
-          <Button size="xl" borderRadius="15" backgroundColor="gray.300">
-            <HStack
-              paddingTop="3"
-              paddingBottom="3"
-              paddingLeft="3"
-              paddingRight="3"
-            >
-              <FaCcMastercard size="50" paddingLeft="5" />
-              <Text>
-                **** **** **** 1234
-                {<br />}
-                Sophoclis Kyriacou
-                {<br />}
-                Mastercard
-              </Text>
-            </HStack>
-          </Button>
-          <Button size="xl" backgroundColor="gray.300" borderRadius="15">
-            <HStack
-              paddingTop="3"
-              paddingBottom="3"
-              paddingLeft="3"
-              paddingRight="3"
-            >
-              <FaCcVisa size="50" paddingLeft="5" />
-              <Text>
-                **** **** **** 1234
-                {<br />}
-                Stylianos Sofokleous
-                {<br />}
-                Visa
-              </Text>
-            </HStack>
-          </Button>
+          {CardData.map((cardDetail, index) => {
+            return (
+              <Button
+                size="xl"
+                borderRadius="15"
+                // boxShadow="none!important"
+                ringColor="#16DABF!important"
+                backgroundColor="gray.300"
+              >
+                <HStack
+                  paddingTop="3"
+                  paddingBottom="3"
+                  paddingLeft="3"
+                  paddingRight="3"
+                >
+                  {cardDetail.type == "Mastercard" ? (
+                    <FaCcMastercard size="50" paddingLeft="5" />
+                  ) : (
+                    <FaCcVisa size="50" paddingLeft="5" />
+                  )}
+                  <Text>
+                    {"**** **** **** "}
+                    {cardDetail.last4digits}
+                    {<br />}
+                    {cardDetail.first_name} {cardDetail.last_name}
+                    {<br />}
+                    {cardDetail.type}
+                  </Text>
+                </HStack>
+              </Button>
+            );
+          })}
         </Stack>
         <Stack position="absolute" bottom="0" paddingBottom="2">
           <HStack alignSelf="center">
@@ -90,12 +89,7 @@ export default function ChoosePaymentMethod({ url }) {
             </Text>
           </HStack>
 
-          <Link
-            as={RouterLink}
-            to="/thankyou"
-            alignSelf="center"
-            width="100%"
-          >
+          <Link as={RouterLink} to="/thankyou" alignSelf="center" width="100%">
             <Button
               size="lg"
               backgroundColor="gray.300"
