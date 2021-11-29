@@ -16,6 +16,7 @@ import {
   form,
   Link,
   Select,
+  Textarea,
 } from "@chakra-ui/react";
 import { FaCar } from "react-icons/fa";
 import {
@@ -75,6 +76,7 @@ export default function Info() {
       <form paddingTop="10" alignSelf="center" onSubmit={sendMail}>
         <FormLabel>Full Name</FormLabel>
         <Input
+          focusBorderColor="#16DABF"
           color="#c1c1c1"
           type="text"
           backgroundColor="gray.200"
@@ -83,20 +85,34 @@ export default function Info() {
         />
         <FormLabel>Mobile Phone</FormLabel>
         <Input
+          focusBorderColor="#16DABF"
           color="#c1c1c1"
           type="tel"
           backgroundColor="gray.200"
           textColor="black"
           name="phone"
         />
+        <FormLabel>Email</FormLabel>
+        <Input
+          focusBorderColor="#16DABF"
+          color="#c1c1c1"
+          type="email"
+          backgroundColor="gray.200"
+          textColor="black"
+          name="email"
+        />
+
         <FormLabel>Reason for contacting</FormLabel>
-        <Select placeholder="Select" name="options">
-          <option>parapono</option>
-          <option>enimerosi</option>
-          <option>isasten kolokoi</option>
+        <Select placeholder="Select" name="option">
+          <option>Suggestion</option>
+          <option>Website Issue</option>
+          <option>Payment Issue</option>
+          <option>Become ParkPick Partner</option>
+          <option>Other</option>
         </Select>
         <FormLabel>Message</FormLabel>
-        <Input
+        <Textarea
+          focusBorderColor="#16DABF"
           color="#c1c1c1"
           type="text"
           backgroundColor="gray.200"

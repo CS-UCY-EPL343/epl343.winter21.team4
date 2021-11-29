@@ -26,12 +26,12 @@ export default function SignUp() {
   var date =
     today.getFullYear() + "-" + (today.getMonth() + 1) + "-" + today.getDate();
 
-  let formsize = 0;
-  rdd.isMobile = true;
-  if (isMobile) {
-    formsize = "80%";
-  } else {
-    formsize = "20%";
+  let formsize=0;
+  //rdd.isMobile=true;
+  if(isMobile){
+    formsize="80%"
+  }else{
+    formsize="20%"
   }
 
   function validateName(value) {
