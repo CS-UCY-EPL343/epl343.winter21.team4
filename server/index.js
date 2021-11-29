@@ -12,9 +12,9 @@ const db = knex({
   client: "pg",
   connection: {
     host: "localhost",
-    user: "postgres",
+    user: "parkpick",
     port: 5432,
-    password: "postgres",
+    password: "parkpick",
     database: "parkpick",
   },
 });
