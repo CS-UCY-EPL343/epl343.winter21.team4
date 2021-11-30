@@ -1,12 +1,37 @@
+<p align="center">
+  <a href="https://www.parkpick.net">
+    <img src="Images/LOGO_WITH_BG.svg">
+  </a>
+</p>
+
+<h2 align="center">Online Parking Payment and Reservation Software</h2>
+
+<p align="center">
+  Parkpick is an online web application that allows users to find, reserve and pay for parking spots online and ahead of time at specific parking spaces owned by clients partnered with our app. This document outlines its User Interface, its main features, and how to access the current prototype on your local network on your browser.
+</p>
+
 # ParkPick
 
-Parkpick is an online web application that allows users to find, reserve and pay for parking spots online and ahead of time at specific parking spaces owned by clients partnered with our app. This document outlines its User Interface, its main features, and how to access the current prototype on your local network on your browser.
+## Table of contents
+
+- [ParkPick](#parkpick)
+  - [Table of contents](#table-of-contents)
+  - [Accessing the Prototype](#accessing-the-prototype)
+  - [User Guide: Main Screens and Features of ParkPick](#user-guide-main-screens-and-features-of-parkpick)
+    - [Landing Page:](#landing-page)
+    - [Sign Up Page:](#sign-up-page)
+    - [Log In Page:](#log-in-page)
+    - [Home Page:](#home-page)
+    - [Card Info:](#card-info)
+    - [User Profile:](#user-profile)
+    - [Parking Profile:](#parking-profile)
+  - [Contributors](#contributors)
 
 ## Accessing the Prototype
 
 Step 1: Download node.js from the following link: [Node.js](https://nodejs.org/en/download/)  
 Step 2: Download the project folder of ParkPick or clone the ParkPick Repository  
-Step 3: Run the following command on the Parkpick project root folder:
+Step 3: Run the following command on the Parkpick project user folder:
 
 ```bash
 npm install
