@@ -22,29 +22,31 @@ export default function Home(url) {
   let imagesize = 0;
   let fontofcaption = 0;
   let padding = 0;
+  let h = 0;
   //rdd.isMobile = false;
   if (isMobile) {
     padding = "5"
     imagesize = "200"
     fontofcaption = "2xl"
   } else {
-    fontofcaption = "4xl"
-    imagesize = "250"
+    fontofcaption = "3xl"
+    imagesize = "270"
     padding = "10"
   }
 
 
   return (
-    <Stack p = {padding} overflowY="auto" height="100%" width="-webkit-fill-available" alignSelf="center" bgSize="auto">
+    <Stack p={padding} overflowY="auto" height="100%" width="-webkit-fill-available" alignSelf="center" bgSize="auto">
       <Stack
+        style={{ display: 'flex', justifyContent: 'center', alignItems: 'center', height: '100vh' }}
         alignSelf="center"
         bgColor="#22DABF"
         p={5}
         color="white"
         borderRadius="lg"
         width="100%"
-        height="100%"
-        
+        height={h}
+
       >
         {/* Browser */}
 
