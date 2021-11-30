@@ -23,6 +23,7 @@ export default function Password() {
           variant="filed"
           type={passwordShown ? "text" : "password"}
           placeholder="Enter Password"
+          name="password_login"
         />
         <Button h="1.75rem" size="sm" onClick={togglePassword}>
           {passwordShown ? "Hide" : "Show"}
