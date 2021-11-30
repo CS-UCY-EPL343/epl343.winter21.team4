@@ -22,14 +22,14 @@ export default function Home(url) {
   let imagesize = 0;
   let fontofcaption = 0;
   let padding = 0;
-  rdd.isMobile = true;
+  //rdd.isMobile = false;
   if (isMobile) {
     padding = "5"
-    imagesize = "100"
-    fontofcaption = "md"
-  } else {
+    imagesize = "200"
     fontofcaption = "2xl"
-    imagesize = "300"
+  } else {
+    fontofcaption = "4xl"
+    imagesize = "250"
     padding = "10"
   }
 
@@ -56,14 +56,14 @@ export default function Home(url) {
           alt="Holding Phone Car Checkmark"
         />
         <Text fontSize={fontofcaption} textAlign="center" fontWeight="bold">
-          Search {<br />}Reserve {<br />}  and {<br />} Pay for your parking spot {<br />}{<br />}Easily and securily {<br />}Using your smartphone
+          Search, Reserve  and  Pay for your parking spot {<br />}easily and securily using your smartphone
         </Text>
 
 
 
         <Link as={RouterLink} to="/search" alignSelf="center" paddingTop="10">
           <Button colorScheme="blackAlpha" variant="solid">
-            <Text fontSize="2xl" textAlign="center" fontWeight="bold" >Get Started</Text>
+            <Text fontSize={fontofcaption} textAlign="center" fontWeight="bold" >Get Started</Text>
           </Button>
         </Link>
 
