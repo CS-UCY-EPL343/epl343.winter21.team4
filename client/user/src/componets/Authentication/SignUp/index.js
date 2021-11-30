@@ -66,7 +66,7 @@ export default function SignUp() {
       >
         <Text>Create a new account</Text>
       </Heading>
-      <form method="POST" action="http://localhost:5000/addUser">
+      <form >
         <Stack spacing={3} alignSelf="center" width={formsize}>
           <HStack>
             <input
@@ -112,12 +112,12 @@ export default function SignUp() {
             type="password"
             name="password_body"
           />
-          <Button width="full" type="submit">
+          
+          <Link as={RouterLink} to="/login">
+            <Button width="full" type="submit">
             SIGN UP
           </Button>
-          {/* <Link as={RouterLink} to="/login">
-            
-          </Link> */}
+          </Link>
         </Stack>
       </form>
     </Stack>
