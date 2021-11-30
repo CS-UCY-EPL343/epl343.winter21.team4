@@ -27,6 +27,7 @@ import {
   useLocation,
 } from "react-router-dom";
 
+
 export default function ChoosePaymentMethod({ url }) {
   const { pathname } = useLocation();
   return (
