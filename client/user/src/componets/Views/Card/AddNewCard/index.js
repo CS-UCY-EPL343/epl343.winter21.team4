@@ -16,7 +16,8 @@ import {
   form,
   Link,
   FormLabel,
-  Textarea
+  Textarea,
+  Select
 
 } from "@chakra-ui/react";
 import { FaCar,FaCcMastercard,FaPlus,FaCcVisa } from "react-icons/fa";
@@ -38,11 +39,17 @@ export default function AddNewCard({url}) {
       <Input
         focusBorderColor="#16DABF"
         color="#c1c1c1"
-        type="text"
+        type="int"
         backgroundColor="gray.200"
         textColor="black"
-        name="name"
+        name="16digit"
       />
+      <FormLabel>Type</FormLabel>
+        <Select placeholder="Select" name="option">
+          <option>Mastercard</option>
+          <option>Visa</option>
+        </Select>
+
       <FormLabel>Card Holders Name</FormLabel>
       <Input
         focusBorderColor="#16DABF"
@@ -50,7 +57,7 @@ export default function AddNewCard({url}) {
         type="text"
         backgroundColor="gray.200"
         textColor="black"
-        name="phone"
+        name="name"
       />
       <FormLabel>CVV</FormLabel>
       <Input
@@ -59,7 +66,7 @@ export default function AddNewCard({url}) {
         type="int"
         backgroundColor="gray.200"
         textColor="black"
-        name="email"
+        name="cvv"
       />
       <FormLabel>Expiration Date</FormLabel>
       <Input
@@ -68,7 +75,7 @@ export default function AddNewCard({url}) {
         type="date"
         backgroundColor="gray.200"
         textColor="black"
-        name="email"
+        name="expirationDate"
       />
       <Stack paddingTop="10" alignSelf="center" alignContent="center">
       <Button as={RouterLink} to="/card" backgroundColor="gray.300" borderRadius="15" width="full" textAlign="center">
