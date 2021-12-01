@@ -12,9 +12,9 @@ const db = knex({
   client: "pg",
   connection: {
     host: "localhost",
-    user: "parkpick",
+    user: "postgres",
     port: 5432,
-    password: "parkpick",
+    password: "postgres",
     database: "parkpick",
   },
 });
@@ -94,6 +94,7 @@ app.post("/addUser", (req, response) => {
       .returning(["id", "email"])
       .then((users) => {
         console.log(users);
+        response.redirect("http://localhost:3000/");
         // response.json(users[0]);
       });
   });
