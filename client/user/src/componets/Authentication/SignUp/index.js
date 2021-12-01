@@ -12,26 +12,26 @@ import {
   FormErrorIcon,
   Field,
   FormLabel,
-  FormErrorMessage
+  FormErrorMessage,
 } from "@chakra-ui/react";
 import { FaCar } from "react-icons/fa";
 import fs from "fs";
 import { Link as RouterLink } from "react-router-dom";
 import { isMobile } from "react-device-detect";
 import * as rdd from "react-device-detect";
-import { v4 as uuidv4 } from 'uuid';
+import { v4 as uuidv4 } from "uuid";
 
 export default function SignUp() {
   var today = new Date();
   var date =
     today.getFullYear() + "-" + (today.getMonth() + 1) + "-" + today.getDate();
 
-  let formsize=0;
+  let formsize = 0;
   //rdd.isMobile=true;
-  if(isMobile){
-    formsize="80%"
-  }else{
-    formsize="20%"
+  if (isMobile) {
+    formsize = "80%";
+  } else {
+    formsize = "20%";
   }
 
   function validateName(value) {
@@ -66,14 +66,10 @@ export default function SignUp() {
       >
         <Text>Create a new account</Text>
       </Heading>
-      <form >
+      <form style={{ "text-align": "-webkit-center" }}>
         <Stack spacing={3} alignSelf="center" width={formsize}>
           <HStack>
-            <input
-              type="hidden"
-              name="id_body"
-              value={uuidv4()}
-            ></input>
+            <input type="hidden" name="id_body" value={uuidv4()}></input>
             <input type="hidden" name="created_body" value={date} />
             <Input
               size="md"
@@ -81,6 +77,7 @@ export default function SignUp() {
               placeholder="First Name"
               type="text"
               name="firstname_body"
+              style={{"margin-left": "0rem"}}
             />
             <Input
               size="md"
@@ -104,7 +101,12 @@ export default function SignUp() {
             type="tel"
             name="phone_body"
           />
-          <Input size="md" variant="filled" placeholder="Password" type="password" />
+          <Input
+            size="md"
+            variant="filled"
+            placeholder="Password"
+            type="password"
+          />
           <Input
             size="md"
             variant="filled"
@@ -112,11 +114,11 @@ export default function SignUp() {
             type="password"
             name="password_body"
           />
-          
+
           <Link as={RouterLink} to="/login">
             <Button width="full" type="submit">
-            SIGN UP
-          </Button>
+              SIGN UP
+            </Button>
           </Link>
         </Stack>
       </form>
