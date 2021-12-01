@@ -42,21 +42,21 @@ export default function Info() {
   function sendMail(e) {
     e.preventDefault();
 
-    // emailjs
-    //   .sendForm(
-    //     "service_aanrjhx",
-    //     "template_ixojhss",
-    //     e.target,
-    //     "user_eZGUuUAHiQaosrQNdkcJi"
-    //   )
-    //   .then(
-    //     (result) => {
-    //       console.log(result.text);
-    //     },
-    //     (error) => {
-    //       console.log(error.text);
-    //     }
-    //   );
+    emailjs
+      .sendForm(
+        "service_aanrjhx",
+        "template_ixojhss",
+        e.target,
+        "user_eZGUuUAHiQaosrQNdkcJi"
+      )
+      .then(
+        (result) => {
+          console.log(result.text);
+        },
+        (error) => {
+          console.log(error.text);
+        }
+      );
     // Email enable
     e.target.reset();
   }
