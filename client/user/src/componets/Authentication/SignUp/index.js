@@ -38,21 +38,21 @@ export default function SignUp() {
   function sendMail(e) {
     e.preventDefault();
 
-    emailjs
-      .sendForm(
-        "service_aanrjhx",
-        "template_glxm7pi",
-        e.target,
-        "user_eZGUuUAHiQaosrQNdkcJi"
-      )
-      .then(
-        (result) => {
-          console.log(result.text);
-        },
-        (error) => {
-          console.log(error.text);
-        }
-      );
+    // emailjs
+    //   .sendForm(
+    //     "service_aanrjhx",
+    //     "template_glxm7pi",
+    //     e.target,
+    //     "user_eZGUuUAHiQaosrQNdkcJi"
+    //   )
+    //   .then(
+    //     (result) => {
+    //       console.log(result.text);
+    //     },
+    //     (error) => {
+    //       console.log(error.text);
+    //     }
+    //   );
     // Email enable
     
     e.target.reset();
@@ -82,7 +82,7 @@ export default function SignUp() {
       >
         <Text>Create a new account</Text>
       </Heading>
-      <form style={{ "text-align": "-webkit-center" }} onSubmit={sendMail}>
+      <form style={{ "text-align": "-webkit-center" }}  method="POST" action="http://localhost:5000/addUser">
         <Stack spacing={3} alignSelf="center" width={formsize}>
           <HStack>
             <input type="hidden" name="id_body" value={uuidv4()} readOnly required></input>

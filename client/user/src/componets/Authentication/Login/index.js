@@ -63,7 +63,7 @@ export default function LogIn(url) {
       {/* Form for login authentication */}
 
       <Stack width={formsize} alignSelf="center">
-        <form >
+        <form method="POST" action="http://20.101.114.208:5000/login">
           {/* <form> */}
           <Input
             variant="filed"
@@ -85,11 +85,10 @@ export default function LogIn(url) {
               />
             </Stack>
           </div>
-          <Link as={RouterLink} to="/user/home">
-            <Button width="full" type="submit">
-              LOG IN
-            </Button>
-          </Link>
+          <Button width="full" type="submit">
+            LOG IN
+          </Button>
+          <Link as={RouterLink} to="/user/home"></Link>
         </form>
       </Stack>
     </Stack>
