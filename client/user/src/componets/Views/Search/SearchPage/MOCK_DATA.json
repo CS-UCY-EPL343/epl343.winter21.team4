@@ -1,16 +1,16 @@
 [
     {
-        "id": "1",
+        "id": "1546",
         "first_name": "Alana",
         "last_name": "Vaszoly",
         "email": "avaszoly0@list-manage.com",
         "picture": "https://i.imgur.com/U1v9EPz.png",
-        "address": "Andrea Miaouli",
+        "address": "Miaouli",
         "addressNumber": 32,
         "city": "Nicosia",
         "postCode": 2415,
         "price": 3.50,
-        "parkingName": "Kokos Parking",
+        "parkingName": "William Parking",
         "totalRatings": "127",
         "avgRating": "4.7",
         "features": {
@@ -19,19 +19,125 @@
             "guard": "false"
         }
     },
-    {
-        "id": "10",
-        "first_name": "Alana",
-        "last_name": "Vaszoly",
-        "email": "avaszoly0@list-manage.com",
-        "picture": "https://i.imgur.com/U1v9EPz.png",
-        "address": "Andrea Miaouli",
-        "addressNumber": 32,
+
+ {
+        "id": "2152",
+        "first_name": "Test2",
+        "last_name": "Test2",
+        "email": "test2@parkpick.net",
+        "picture": "https://i.imgur.com/A09t5T3.jpg",
+        "address": "Vizandiou",
+        "addressNumber": 22,
         "city": "Nicosia",
-        "postCode": 2415,
+        "postCode": 2220,
+        "price": 3.00,
+        "parkingName": "Michael Parking",
+        "totalRatings": "67",
+        "avgRating": "4.9",
+        "features": {
+            "asphalt": "true",
+            "cctv": "true",
+            "guard": "true"
+        }
+    },
+
+    {
+        "id": "3000",
+        "first_name": "Test3",
+        "last_name": "Test3",
+        "email": "test3@parkpick.net",
+        "picture": "https://i.imgur.com/LXAERL4.jpg",
+        "address": "Solomonda",
+        "addressNumber": 65,
+        "city": "Larnaca",
+        "postCode": 2810,
+        "price": 3.00,
+        "parkingName": "Jackson Parking",
+        "totalRatings": "52",
+        "avgRating": "4.1",
+        "features": {
+            "asphalt": "true",
+            "cctv": "false",
+            "guard": "true"
+        }
+    },
+
+     {
+        "id": "4484",
+        "first_name": "Test4",
+        "last_name": "Test4",
+        "email": "test4@parkpick.net",
+        "picture": "https://i.imgur.com/0OfK25f.jpg",
+        "address": "Ayias Sofias",
+        "addressNumber": 5,
+        "city": "Nicosia",
+        "postCode": 2332,
+        "price": 2.50,
+        "parkingName": "Anthony Parking",
+        "totalRatings": "22",
+        "avgRating": "4.8",
+        "features": {
+            "asphalt": "true",
+            "cctv": "false",
+            "guard": "true"
+        }
+    },
+
+     {
+        "id": "5056",
+        "first_name": "Test5",
+        "last_name": "Test5",
+        "email": "test5@parkpick.net",
+        "picture": "https://i.imgur.com/4YVZF7i.jpg",
+        "address": "Makariou",
+        "addressNumber": 19,
+        "city": "Nicosia",
+        "postCode": 2110,
+        "price": 3.00,
+        "parkingName": "Marcelo Parking",
+        "totalRatings": "52",
+        "avgRating": "4.1",
+        "features": {
+            "asphalt": "false",
+            "cctv": "false",
+            "guard": "true"
+        }
+    },
+
+     {
+        "id": "6465",
+        "first_name": "Test6",
+        "last_name": "Test6",
+        "email": "test6@parkpick.net",
+        "picture": "https://i.imgur.com/Kki7dxC.jpg",
+        "address": "Eleftherias",
+        "addressNumber": 65,
+        "city": "Limassol",
+        "postCode": 2620,
+        "price": 3.00,
+        "parkingName": "Grayson Parking",
+        "totalRatings": "112",
+        "avgRating": "4.4",
+        "features": {
+            "asphalt": "true",
+            "cctv": "true",
+            "guard": "true"
+        }
+    },
+
+     {
+        "id": "7000",
+        "first_name": "Test7",
+        "last_name": "Test7",
+        "email": "test3@parkpick.net",
+        "picture": "https://i.imgur.com/xfcXnXs.jpg",
+        "address": "Perikleous",
+        "addressNumber": 28,
+        "city": "Nicosia",
+        "postCode": 2210,
         "price": 3.50,
-        "parkingName": "Kokos Parking",
-        "totalRatings": "127",
+        "parkingName": "Metaxas Parking",
+        "totalRatings": "143",
         "avgRating": "4.7",
         "features": {
             "asphalt": "true",
@@ -39,84 +145,91 @@
             "guard": "false"
         }
     },
-    {
-        "id": "100",
-        "first_name": "Alana",
-        "last_name": "Vaszoly",
-        "email": "avaszoly0@list-manage.com",
-        "picture": "https://i.imgur.com/U1v9EPz.png",
-        "address": "Andrea Miaouli",
-        "addressNumber": 32,
+
+     {
+        "id": "8000",
+        "first_name": "Test8",
+        "last_name": "Test8",
+        "email": "test8@parkpick.net",
+        "picture": "https://i.imgur.com/Z2sUfVK.jpg",
+        "address": "Attikis",
+        "addressNumber": 8,
         "city": "Nicosia",
-        "postCode": 2415,
-        "price": 3.50,
-        "parkingName": "Kokos Parking",
-        "totalRatings": "127",
-        "avgRating": "4.7",
+        "postCode": 2850,
+        "price": 2.00,
+        "parkingName": "Joaquin Parking",
+        "totalRatings": "13",
+        "avgRating": "3.9",
         "features": {
             "asphalt": "true",
-            "cctv": "true",
+            "cctv": "false",
             "guard": "false"
         }
     },
-    {
-        "id": "1000",
-        "first_name": "Alana",
-        "last_name": "Vaszoly",
-        "email": "avaszoly0@list-manage.com",
-        "picture": "https://i.imgur.com/U1v9EPz.png",
-        "address": "Andrea Miaouli",
-        "addressNumber": 32,
+
+     {
+        "id": "9000",
+        "first_name": "Test9",
+        "last_name": "Test9",
+        "email": "test3@parkpick.net",
+        "picture": "https://i.imgur.com/zcYqqH4.jpg",
+        "address": "Irodou ",
+        "addressNumber": 8,
         "city": "Nicosia",
-        "postCode": 2415,
-        "price": 3.50,
-        "parkingName": "Kokos Parking",
-        "totalRatings": "127",
-        "avgRating": "4.7",
+        "postCode": 2060,
+        "price": 3.00,
+        "parkingName": "Leonard Parking",
+        "totalRatings": "43",
+        "avgRating": "4.3",
         "features": {
             "asphalt": "true",
-            "cctv": "true",
+            "cctv": "false",
+            "guard": "true"
+        }
+    },
+
+     {
+        "id": "1010",
+        "first_name": "Test10",
+        "last_name": "Test10",
+        "email": "test3@parkpick.net",
+        "picture": "https://i.imgur.com/ogMupTR.jpg",
+        "address": "Alkiviadou",
+        "addressNumber": 56,
+        "city": "Limassol",
+        "postCode": 2110,
+        "price": 3.00,
+        "parkingName": "Lorenzo Parking",
+        "totalRatings": "23",
+        "avgRating": "4.1",
+        "features": {
+            "asphalt": "true",
+            "cctv": "false",
             "guard": "false"
         }
     },
-    {
-        "id": "10000",
-        "first_name": "Alana",
-        "last_name": "Vaszoly",
-        "email": "avaszoly0@list-manage.com",
-        "picture": "https://i.imgur.com/U1v9EPz.png",
-        "address": "Andrea Miaouli",
-        "addressNumber": 32,
+
+     {
+        "id": "1100",
+        "first_name": "Test11",
+        "last_name": "Test11",
+        "email": "test3@parkpick.net",
+        "picture": "https://i.imgur.com/xfcXnXs.jpg",
+        "address": "Stadiou",
+        "addressNumber": 9,
         "city": "Nicosia",
-        "postCode": 2415,
-        "price": 3.50,
-        "parkingName": "Kokos Parking",
-        "totalRatings": "127",
-        "avgRating": "4.7",
+        "postCode": 2660,
+        "price": 2.50,
+        "parkingName": "Ibrahim Parking",
+        "totalRatings": "13",
+        "avgRating": "4.9",
         "features": {
             "asphalt": "true",
             "cctv": "true",
-            "guard": "false"
-        }
-    },
-    {
-        "id": "100000",
-        "first_name": "Alana",
-        "last_name": "Vaszoly",
-        "email": "avaszoly0@list-manage.com",
-        "picture": "https://i.imgur.com/U1v9EPz.png",
-        "address": "Andrea Miaouli",
-        "addressNumber": 32,
-        "city": "Nicosia",
-        "postCode": 2415,
-        "price": 3.50,
-        "parkingName": "Kokos Parking",
-        "totalRatings": "127",
-        "avgRating": "4.7",
-        "features": {
-            "asphalt": "true",
-            "cctv": "true",
-            "guard": "false"
+            "guard": "true"
         }
     }
+
+
+
 ]
