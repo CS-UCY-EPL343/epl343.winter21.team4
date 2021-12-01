@@ -54,6 +54,7 @@ export default function SignUp() {
         }
       );
     // Email enable
+    
     e.target.reset();
   }
 
