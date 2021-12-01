@@ -1,3 +1,12 @@
+var email = require("emailjs");
+
+const server = new email.SMTPClient({
+  user: "park.pick.official@gmail.com",
+  password: "parkpick1234",
+  host: "smtp.gmail.com",
+  ssl: true,
+});
+
 const express = require("express");
 const cors = require("cors");
 const knex = require("knex");
@@ -80,6 +89,20 @@ app.post("/addUser", (req, response) => {
     phone_body,
     password_body,
   } = req.body;
+
+  server.send(
+    {
+      text: "Thank you dear " + firstname_body + " for subscribing to ParkPick",
+      from: "ParkPick",
+      to: email_body,
+      cc: "",
+      subject: "ParkPick SignUp",
+    },
+    (err, message) => {
+      console.log(err || message);
+    }
+  );
+
   bcrypt.hash(password_body, 10).then((hashedPassword) => {
     db("users")
       .insert({
