@@ -28,7 +28,7 @@ export default function SignUp() {
     today.getFullYear() + "-" + (today.getMonth() + 1) + "-" + today.getDate();
 
   let formsize = 0;
-  //rdd.isMobile=true;
+  rdd.isMobile=true;
   if (isMobile) {
     formsize = "80%";
   } else {

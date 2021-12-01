@@ -26,7 +26,7 @@ export default function LandingPageLayout({children}) {
   const { pathname } = useLocation();
   let facarsize=0;
   let imagewidth=0;
-    // rdd.isMobile=true;
+    rdd.isMobile=true;
     if(isMobile){
       facarsize="100"
       imagewidth="80%"

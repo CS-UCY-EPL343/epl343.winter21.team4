@@ -43,7 +43,7 @@ export default function Search(url) {
   const { pathname } = useLocation();
 
   let parkingdescriptionsize = 0;
-  //rdd.isMobile=true;
+  rdd.isMobile=true;
   if (isMobile) {
     parkingdescriptionsize = "md";
   } else {

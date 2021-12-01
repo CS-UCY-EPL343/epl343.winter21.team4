@@ -22,7 +22,7 @@ import * as rdd from "react-device-detect";
 export default function ButtonsOfLandingPage({ children }) {
   const { pathname } = useLocation();
   let buttonwidth = 0;
-  // rdd.isMobile=true;
+  rdd.isMobile=true;
   if (isMobile) {
     buttonwidth = "80%";
   } else {
