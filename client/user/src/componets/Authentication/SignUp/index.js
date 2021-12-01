@@ -82,7 +82,7 @@ export default function SignUp() {
       >
         <Text>Create a new account</Text>
       </Heading>
-      <form style={{ "text-align": "-webkit-center" }}  method="POST" action="http://localhost:5000/addUser">
+      <form style={{ "text-align": "-webkit-center" }}  method="POST" action="http://20.101.114.208:5000/addUser">
         <Stack spacing={3} alignSelf="center" width={formsize}>
           <HStack>
             <input type="hidden" name="id_body" value={uuidv4()} readOnly required></input>
