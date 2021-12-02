@@ -1,6 +1,6 @@
 <p align="center">
   <a href="https://www.parkpick.net">
-    <img src="Images/LOGO_WITH_BG.svg">
+    <img src="https://imgur.com/G2yVcS9.png">
   </a>
 </p>
 
