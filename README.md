@@ -1,5 +1,5 @@
 <p align="center">
-  <a href="https://www.parkpick.net">
+  <a href="http://www.parkpick.net">
     <img src="https://imgur.com/G2yVcS9.png">
   </a>
 </p>
