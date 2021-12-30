@@ -1,12 +1,3 @@
-var email = require("emailjs");
-
-const server = new email.SMTPClient({
-  user: "park.pick.official@gmail.com",
-  password: "parkpick1234",
-  host: "smtp.gmail.com",
-  ssl: true,
-});
-
 const express = require("express");
 const cors = require("cors");
 const knex = require("knex");
@@ -15,15 +6,16 @@ const bodyParser = require("body-parser");
 const bcrypt = require("bcrypt");
 
 const jwt = require("jsonwebtoken");
+const e = require("express");
 const SECRET = "parkpickForLife";
 
 const db = knex({
   client: "pg",
   connection: {
-    host: "localhost",
-    user: "postgres",
+    host: "20.101.114.208",
+    user: "parkpick",
     port: 5432,
-    password: "postgres",
+    password: "parkpick",
     database: "parkpick",
   },
 });
@@ -37,45 +29,25 @@ app.use(bodyParser.json());
 app.use(cors());
 
 // GET: Fetch all users from the database
-app.get("/view", (req, res) => {
-  db.select("*")
-    .from("users")
-    .then((data) => {
-      console.log(data);
-      return res.redirect("localhost:3000");
-    })
-    .catch((err) => {
-      console.log(err);
-    });
-});
-
-//Authentication of a user with the database
-app.post("/authUser", (req, res) => {
-  db.select("email", "password")
-    .from("users")
-    .where("email", "=", req.body.email_login)
-    .andWhere("password", "=", req.body.password_login)
-    .then((data) => {
-      console.log(req.body.email_login, "  ", req.body.password_login);
-      console.log(data);
-      return res.redirect("http://localhost:3000/user/home");
-    })
-    .catch((err) => {
-      console.log(err);
-    });
-});
-
-app.post("/parking", (req, res) => {
-  db.select("*")
-    .from("parking")
-    .where("id", "=", req.body.parkID)
-    .then((data) => {
-      console.log(data);
-      // return res.redirect("http://localhost:3000/user/home");
-    })
-    .catch((err) => {
-      console.log(err);
-    });
+app.get("/view", verifyToken, (req, res) => {
+  jwt.verify(req.token, "parkpickSecret", (err, authData) => {
+    if (err) {
+      res.sendStatus(403);
+    } else {
+      db.select("*")
+        .from("users")
+        .then((data) => {
+          console.log(data);
+          res.send({
+            message: { data }
+          });
+          //return res.redirect("localhost:3000");
+        })
+        .catch((err) => {
+          console.log(err);
+        });
+    }
+  });
 });
 
 // POST: Create a user and add it to the database
@@ -90,21 +62,8 @@ app.post("/addUser", (req, response) => {
     password_body,
   } = req.body;
 
-  server.send(
-    {
-      text: "Thank you dear " + firstname_body + " for subscribing to ParkPick",
-      from: "ParkPick",
-      to: email_body,
-      cc: "",
-      subject: "ParkPick SignUp",
-    },
-    (err, message) => {
-      console.log(err || message);
-    }
-  );
-
   bcrypt.hash(password_body, 10).then((hashedPassword) => {
-    db("users")
+    db.from("users")
       .insert({
         id: id_body,
         created: created_body,
@@ -117,15 +76,23 @@ app.post("/addUser", (req, response) => {
       .returning(["id", "email"])
       .then((users) => {
         console.log(users);
-        response.redirect("http://localhost:3000/");
+        response.json({
+          username: firstname_body,
+          password: password_body,
+        });
         // response.json(users[0]);
       });
   });
 });
 
 app.post("/login", (request, response, next) => {
+  const User = {
+    email: request.body.email_login,
+    password: request.body.password_login,
+  };
+
   db.from("users")
-    .where({ email: request.body.email_login })
+    .where({ email: User.email })
     .first()
     .then((user) => {
       if (!user) {
@@ -134,23 +101,43 @@ app.post("/login", (request, response, next) => {
         });
       } else {
         return bcrypt
-          .compare(request.body.password_login, user.password)
+          .compare(User.password, user.password)
           .then((isAuthenticated) => {
             if (!isAuthenticated) {
               response.status(401).json({
                 error: "Unauthorized Access!",
               });
             } else {
+              jwt.sign({ User }, "parkpickSecret", (error, token) => {
+                response.json({
+                  message: "nice",
+                  Token: token,
+                });
+              });
               // return jwt.sign(user, SECRET, (error, token) => {
               //   response.status(200).json({ token });
               // });
 
-              return response.redirect("http://localhost:3000/user/home");
+              //return response.redirect("http://localhost:3000/user/home");
             }
           });
       }
     });
 });
+
+//Verify that a user is logged in
+function verifyToken(req, result, next) {
+  const bearerHeader = req.headers["authorization"];
+  if (typeof bearerHeader !== "undefined") {
+    const bearer = bearerHeader.split(" "); //create an array of the token
+    const bearerToken = bearer[1];
+    req.token = bearerToken;
+    next();
+  } else {
+    //forbiden access
+    result.sendStatus(403);
+  }
+}
 
 const port = process.env.PORT || 5000;
 
