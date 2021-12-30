@@ -108,7 +108,7 @@ app.post("/login", (request, response, next) => {
                 error: "Unauthorized Access!",
               });
             } else {
-              jwt.sign({ User }, "parkpickSecret", (error, token) => {
+              jwt.sign({ User }, "parkpickSecret",{expiresIn: '1h'}, (error, token) => {
                 response.json({
                   message: "nice",
                   Token: token,
