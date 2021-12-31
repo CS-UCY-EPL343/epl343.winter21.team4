@@ -73,6 +73,9 @@ app.post("/addUser", (req, response) => {
         phone: phone_body,
         password: hashedPassword,
       })
+      .catch((error)=>{
+        response.status(404).json("Cannot Use the same email again")
+      })
       .returning(["id", "email"])
       .then((users) => {
         console.log(users);
@@ -108,6 +111,7 @@ app.post("/login", (request, response, next) => {
                 error: "Unauthorized Access!",
               });
             } else {
+              //token craetion for a logged in user
               jwt.sign({ User }, "parkpickSecret",{expiresIn: '1h'}, (error, token) => {
                 response.json({
                   message: "nice",

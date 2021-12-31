@@ -63,7 +63,7 @@ export default function LogIn(url) {
       {/* Form for login authentication */}
 
       <Stack width={formsize} alignSelf="center">
-        <form method="POST" action="http://20.101.114.208:5000/login">
+        <form method="POST" action="http://localhost:5000/login">
           {/* <form> */}
           <Input
             variant="filed"
