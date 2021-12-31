@@ -1,4 +1,5 @@
 const express = require("express");
+var session = require('express-session');
 const cors = require("cors");
 const knex = require("knex");
 require("dotenv").config();
@@ -21,8 +22,14 @@ const db = knex({
 });
 
 const app = express();
-
-app.use(express.urlencoded({ extended: false }));
+app.use(
+  session({
+    secret: "secret",
+    resave: true,
+    saveUninitialized: true,
+  })
+);
+app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
 app.use(bodyParser.json());
 // CORS implemented so that we don't get errors when trying to access the server from a different server location
@@ -39,7 +46,7 @@ app.get("/view", verifyToken, (req, res) => {
         .then((data) => {
           console.log(data);
           res.send({
-            message: { data }
+            message: { data },
           });
           //return res.redirect("localhost:3000");
         })
@@ -73,8 +80,8 @@ app.post("/addUser", (req, response) => {
         phone: phone_body,
         password: hashedPassword,
       })
-      .catch((error)=>{
-        response.status(404).json("Cannot Use the same email again")
+      .catch((error) => {
+        response.status(404).json("Cannot Use the same email again");
       })
       .returning(["id", "email"])
       .then((users) => {
@@ -112,22 +119,34 @@ app.post("/login", (request, response, next) => {
               });
             } else {
               //token craetion for a logged in user
-              jwt.sign({ User }, "parkpickSecret",{expiresIn: '1h'}, (error, token) => {
-                response.json({
-                  message: "nice",
-                  Token: token,
-                });
-              });
-              // return jwt.sign(user, SECRET, (error, token) => {
-              //   response.status(200).json({ token });
-              // });
-
-              //return response.redirect("http://localhost:3000/user/home");
+              jwt.sign(
+                { User },
+                "parkpickSecret",
+                { expiresIn: "1h" },
+                (error, token) => {
+                  request.session.loggedin = true;
+                  request.session.userName = user.email;
+                  response.json({
+                    message: "nice",
+                    Token: token,
+                  });
+                }
+              );
             }
           });
       }
     });
 });
+
+//test for home page
+app.get('/home',(req,res)=>{
+  if(req.session.loggedin){
+    res.sendStatus(200).json("Welcome back, " + req.session.userName);
+  }else{
+    res.sendStatus(403);
+    res.redirect("http://localhost:3000/login")
+  }
+})
 
 //Verify that a user is logged in
 function verifyToken(req, result, next) {
