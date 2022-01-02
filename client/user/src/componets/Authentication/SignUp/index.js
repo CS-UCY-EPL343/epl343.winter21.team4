@@ -14,18 +14,19 @@ import {
   FormLabel,
   FormErrorMessage,
 } from "@chakra-ui/react";
-import { FaCar } from "react-icons/fa";
-import fs from "fs";
 import { Link as RouterLink } from "react-router-dom";
 import { isMobile } from "react-device-detect";
 import * as rdd from "react-device-detect";
 import { v4 as uuidv4 } from "uuid";
 import emailjs from "emailjs-com";
+import { useState } from "react";
+import axios from "axios";
 
 export default function SignUp() {
   var today = new Date();
-  var date =
-    today.getFullYear() + "-" + (today.getMonth() + 1) + "-" + today.getDate();
+  //  var date = today.getFullYear() + "-" + (today.getUTCMonth()+1) + "-" + today.getDate();
+  var Fulldate = today.toISOString();
+  var date = Fulldate.split("T");
 
   let formsize = 0;
   //rdd.isMobile=true;
@@ -34,6 +35,29 @@ export default function SignUp() {
   } else {
     formsize = "20%";
   }
+
+  const [email, SetEmail] = useState("");
+  const [password, SetPassword] = useState("");
+  const [phone, SetPhone] = useState("");
+  const [Fname, SetFname] = useState("");
+  const [Lname, SetLname] = useState("");
+
+  const register = (e) => {
+    axios
+      .post("http://localhost:5000/signup", {
+        id_body: uuidv4(),
+        created_body: date[0],
+        firstname_body: Fname,
+        email_body: email,
+        lastname_body: Lname,
+        phone_body: phone,
+        password_body: password,
+      })
+      .then((results, error) => {
+        if (error) console.log(error);
+        console.log(results);
+      });
+  };
 
   function sendMail(e) {
     e.preventDefault();
@@ -54,7 +78,7 @@ export default function SignUp() {
     //     }
     //   );
     // Email enable
-    
+
     e.target.reset();
   }
 
@@ -82,66 +106,83 @@ export default function SignUp() {
       >
         <Text>Create a new account</Text>
       </Heading>
-      <form style={{ "text-align": "-webkit-center" }}  method="POST" action="http://localhost:5000/addUser">
-        <Stack spacing={3} alignSelf="center" width={formsize}>
-          <HStack>
-            <input type="hidden" name="id_body" value={uuidv4()} readOnly required></input>
-            <input type="hidden" name="created_body" value={date} readOnly required />
-            <Input
-              size="md"
-              variant="filled"
-              placeholder="First Name"
-              type="text"
-              name="firstname_body"
-              style={{ "margin-left": "0rem" }}
-              required
-            />
-            <Input
-              size="md"
-              variant="filled"
-              placeholder="Last Name"
-              type="text"
-              name="lastname_body"
-              required
-            />
-          </HStack>
+      <Stack spacing={3} alignSelf="center" width={formsize}>
+        <HStack>
           <Input
+            className="signup"
             size="md"
             variant="filled"
-            placeholder="Email"
-            type="email"
-            name="email_body"
+            placeholder="First Name"
+            type="text"
+            name="firstname_body"
+            style={{ "margin-left": "0rem" }}
             required
+            onChange={(e) => {
+              SetFname(e.target.value);
+            }}
           />
           <Input
+            className="signup"
             size="md"
             variant="filled"
-            placeholder="Phone Number"
-            type="tel"
-            name="phone_body"
+            placeholder="Last Name"
+            type="text"
+            name="lastname_body"
             required
+            onChange={(e) => {
+              SetLname(e.target.value);
+            }}
           />
-          <Input
-            size="md"
-            variant="filled"
-            placeholder="Password"
-            type="password"
-            required
-          />
-          <Input
-            size="md"
-            variant="filled"
-            placeholder="Repeat Password"
-            type="password"
-            name="password_body"
-            required
-          />
-          <Button width="full" type="submit">
-            SIGN UP
-          </Button>
-          <Link as={RouterLink} to="/login"></Link>
-        </Stack>
-      </form>
+        </HStack>
+        <Input
+          className="signup"
+          size="md"
+          variant="filled"
+          placeholder="Email"
+          type="email"
+          name="email_body"
+          required
+          onChange={(e) => {
+            SetEmail(e.target.value);
+          }}
+        />
+        <Input
+          className="signup"
+          size="md"
+          variant="filled"
+          placeholder="Phone Number"
+          type="tel"
+          name="phone_body"
+          required
+          onChange={(e) => {
+            SetPhone(e.target.value);
+          }}
+        />
+        <Input
+          className="signup"
+          size="md"
+          variant="filled"
+          placeholder="Password"
+          type="password"
+          required
+        />
+        <Input
+          className="signup"
+          size="md"
+          variant="filled"
+          placeholder="Repeat Password"
+          type="password"
+          name="password_body"
+          required
+          onChange={(e) => {
+            SetPassword(e.target.value);
+          }}
+        />
+        <Button width="full" onClick={register}>
+          SIGN UP
+        </Button>
+        <Link as={RouterLink} to="/login"></Link>
+      </Stack>
     </Stack>
   );
 }

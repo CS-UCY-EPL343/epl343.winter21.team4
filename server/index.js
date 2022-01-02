@@ -56,7 +56,7 @@ app.get("/view", verifyToken, (req, res) => {
 });
 
 // POST: Create a user and add it to the database
-app.post("/addUser", (req, response) => {
+app.post("/signup", (req, response) => {
   const {
     id_body,
     created_body,
@@ -68,6 +68,7 @@ app.post("/addUser", (req, response) => {
   } = req.body;
 
   bcrypt.hash(password_body, 10).then((hashedPassword) => {
+    try{
     db.from("users")
       .insert({
         id: id_body,
@@ -78,19 +79,25 @@ app.post("/addUser", (req, response) => {
         phone: phone_body,
         password: hashedPassword,
       })
-      .catch((error) => {
-        response.status(404).json("Cannot Use the same email again");
-      })
       .returning(["id", "email"])
       .then((users) => {
         console.log(users);
         response.json({
-          username: firstname_body,
+          First_Name: firstname_body,
           password: password_body,
+          emai: email_body
         });
         // response.json(users[0]);
-      });
+      }).catch((err)=>{
+        console.log(err)
+        response.status(400)
+      })
+    }
+    catch{
+      console.log("error");
+    }
   });
+  
 });
 
 app.post("/login", (request, response, next) => {
