@@ -50,7 +50,12 @@ export default function LogIn(url) {
       email_login: email,
       password_login: password,
     }).then((response) => {
+      if(response.status == 404){
+        console.log("No User Found");
+      }
+      else{
       console.log(response);
+      }
     });
   };
 

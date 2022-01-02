@@ -104,17 +104,13 @@ app.post("/login", (request, response, next) => {
     .first()
     .then((user) => {
       if (!user) {
-        response.status(401).json({
-          error: "No user by that name",
-        });
+        response.status(404).send("No user found");
       } else {
         return bcrypt
           .compare(User.password, user.password)
           .then((isAuthenticated) => {
             if (!isAuthenticated) {
-              response.status(401).json({
-                error: "Unauthorized Access!",
-              });
+              response.status(401).send("Not Authorized")
             } else {
               //token craetion for a logged in user
               jwt.sign(
@@ -128,7 +124,7 @@ app.post("/login", (request, response, next) => {
                   jsonOBJ.email = User.email;
                   jsonOBJ.password = User.password;
                   jsonOBJ.token = token;
-
+                  //console.log("Logged in")
                   response.send(JSON.stringify(jsonOBJ));
                 }
               );
