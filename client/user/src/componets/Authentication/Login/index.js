@@ -28,8 +28,9 @@ import LandingPage from "../../LandingPage";
 import Password from "../Password";
 import { isMobile } from "react-device-detect";
 import * as rdd from "react-device-detect";
+import { useState } from "react";
 // import { setUserSession } from "../../../utils/common";
-// import axios from 'axios';
+import axios, { Axios } from "axios";
 // import React, { useState } from 'react';
 
 export default function LogIn(url) {
@@ -40,6 +41,18 @@ export default function LogIn(url) {
   } else {
     formsize = "20%";
   }
+
+  const [email, SetEmail] = useState("");
+  const [password, SetPassword] = useState("");
+
+  const login = () => {
+    axios.post('http://localhost:5000/login', {
+      email_login: email,
+      password_login: password,
+    }).then((response) => {
+      console.log(response);
+    });
+  };
 
   return (
     <Stack
@@ -63,33 +76,35 @@ export default function LogIn(url) {
       {/* Form for login authentication */}
 
       <Stack width={formsize} alignSelf="center">
-        <form method="POST" action="http://localhost:5000/login">
-          {/* <form> */}
-          <Input
-            variant="filed"
-            placeholder="Email"
-            name="email_login"
-            id="email_login"
-            type="email"
-          />
-
-          {/* <Password /> */}
-          <div>
-            <Stack alignSelf="center" paddingTop="1rem" paddingBottom="1rem">
-              <Input
-                variant="filed"
-                type="password"
-                placeholder="Enter Password"
-                name="password_login"
-                id="password_login"
-              />
-            </Stack>
-          </div>
-          <Button width="full" type="submit">
-            LOG IN
-          </Button>
-          <Link as={RouterLink} to="/user/home"></Link>
-        </form>
+        {/* <form> */}
+        <Input
+          variant="filed"
+          placeholder="Email"
+          name="email_login"
+          id="email_login"
+          type="email"
+          onChange={(e) => {
+            SetEmail(e.target.value);
+          }}
+        />
+        <div>
+          <Stack alignSelf="center" paddingTop="1rem" paddingBottom="1rem">
+            <Input
+              variant="filed"
+              type="password"
+              placeholder="Enter Password"
+              name="password_login"
+              id="password_login"
+              onChange={(e) => {
+                SetPassword(e.target.value);
+              }}
+            />
+          </Stack>
+        </div>
+        <Button width="full" onClick={login}>
+          LOG IN
+        </Button>
+        {/* <Link as={RouterLink} to="/user/home"></Link> */}
       </Stack>
     </Stack>
   );

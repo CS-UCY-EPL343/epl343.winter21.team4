@@ -1,5 +1,5 @@
 const express = require("express");
-var session = require('express-session');
+var session = require("express-session");
 const cors = require("cors");
 const knex = require("knex");
 require("dotenv").config();
@@ -7,8 +7,6 @@ const bodyParser = require("body-parser");
 const bcrypt = require("bcrypt");
 
 const jwt = require("jsonwebtoken");
-const e = require("express");
-const SECRET = "parkpickForLife";
 
 const db = knex({
   client: "pg",
@@ -126,10 +124,12 @@ app.post("/login", (request, response, next) => {
                 (error, token) => {
                   request.session.loggedin = true;
                   request.session.userName = user.email;
-                  response.json({
-                    message: "nice",
-                    Token: token,
-                  });
+                  var jsonOBJ = new Object();
+                  jsonOBJ.email = User.email;
+                  jsonOBJ.password = User.password;
+                  jsonOBJ.token = token;
+
+                  response.send(JSON.stringify(jsonOBJ));
                 }
               );
             }
@@ -139,14 +139,14 @@ app.post("/login", (request, response, next) => {
 });
 
 //test for home page
-app.get('/home',(req,res)=>{
-  if(req.session.loggedin){
+app.get("/home", (req, res) => {
+  if (req.session.loggedin) {
     res.sendStatus(200).json("Welcome back, " + req.session.userName);
-  }else{
+  } else {
     res.sendStatus(403);
-    res.redirect("http://localhost:3000/login")
+    res.redirect("http://localhost:3000/login");
   }
-})
+});
 
 //Verify that a user is logged in
 function verifyToken(req, result, next) {
